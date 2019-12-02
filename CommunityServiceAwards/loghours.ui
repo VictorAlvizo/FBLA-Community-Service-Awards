@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LogHours</class>
+ <widget class="QDialog" name="LogHours">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>230</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>191</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="nameLabel">
+      <property name="font">
+       <font>
+        <family>Kenyan Coffee</family>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Event Name </string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="nameOutput"/>
+    </item>
+    <item row="5" column="0" colspan="2">
+     <widget class="QLabel" name="categoryLabel">
+      <property name="font">
+       <font>
+        <family>Kenyan Coffee</family>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Event Category</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="otherLabel">
+      <property name="font">
+       <font>
+        <family>Kenyan Coffee</family>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Other</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="1">
+     <widget class="QLineEdit" name="otherInput">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="14" column="0">
+     <widget class="QLabel" name="hourLabel">
+      <property name="font">
+       <font>
+        <family>Kenyan Coffee</family>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Hours</string>
+      </property>
+     </widget>
+    </item>
+    <item row="17" column="1">
+     <widget class="QSpinBox" name="hourBox"/>
+    </item>
+    <item row="19" column="0" colspan="2">
+     <widget class="QLabel" name="dateLabel">
+      <property name="font">
+       <font>
+        <family>Kenyan Coffee</family>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Date</string>
+      </property>
+     </widget>
+    </item>
+    <item row="20" column="1">
+     <widget class="QDateEdit" name="dateEdit"/>
+    </item>
+    <item row="23" column="0" colspan="2">
+     <widget class="QPushButton" name="submitButton">
+      <property name="text">
+       <string>Log</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
