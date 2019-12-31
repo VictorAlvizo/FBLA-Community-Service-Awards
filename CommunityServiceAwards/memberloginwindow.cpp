@@ -32,15 +32,17 @@ MemberLoginWindow::~MemberLoginWindow()
 }
 
 void MemberLoginWindow::LoginButton(){
+    //Incase the folder 'info' does not exist create it, this code excerpt is only found
+    //here and admin login as beyond that it has already been created in the case it's missing
+    if(!QDir("info/").exists()){
+        QDir().mkdir("info/");
+        QMessageBox::information(this, "Missing File Created", "Information folder not found, new one has been created.");
+        return;
+    }
+    
     if(ui->usernameLE->text().isEmpty() || ui->passwordLE->text().isEmpty()){
         QMessageBox::warning(this, "Empty input(s)", "Username and Password box must be filled in.");
         return;
-    }
-
-    //Incase the folder 'info' does not exist create it, this code excerpt is only found
-    //here and admin login as beyond that it has been created in the case it's missing
-    if(!QDir("info/").exists()){
-        QDir().mkdir("info/");
     }
 
     QString username = ui->usernameLE->text();
