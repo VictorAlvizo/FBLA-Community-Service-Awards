@@ -14,15 +14,15 @@ MainWindow::MainWindow(QWidget *parent) :
     QPixmap iconImage(":/images/images/LogoTitleIcon.png");
     this->setWindowIcon(iconImage);
 
+    connect(ui->adminButton, SIGNAL(released()), this, SLOT(AdminButtonLogin()));
+    connect(ui->memberLogin, SIGNAL(released()), this, SLOT(MemberButtonLogin()));
+    connect(ui->helpButton, SIGNAL(released()), this, SLOT(HelpButton()));
+
     //Connecting all the buttons and Actions to their dedicated methods
     connect(ui->actionMission, SIGNAL(triggered()), this, SLOT(ActMission()));
     connect(ui->actionQT, SIGNAL(triggered()), this, SLOT(ActQT()));
     connect(ui->actionDeveloper, SIGNAL(triggered()), this, SLOT(ActDev()));
-    connect(ui->adminHelp, SIGNAL(triggered()), this, SLOT(ActAdHelp()));
-    connect(ui->memberHelp, SIGNAL(triggered()), this, SLOT(ActMemHelp()));
-
-    connect(ui->adminButton, SIGNAL(released()), this, SLOT(AdminButtonLogin()));
-    connect(ui->memberLogin, SIGNAL(released()), this, SLOT(MemberButtonLogin()));
+    connect(ui->actionGithub, SIGNAL(triggered()), this, SLOT(ActGithub()));
 }
 
 MainWindow::~MainWindow()
@@ -42,6 +42,11 @@ void MainWindow::MemberButtonLogin(){
     memberLW->exec();
 }
 
+void MainWindow::HelpButton(){
+    QnAWindow * helpWindow = new QnAWindow();
+    helpWindow->exec();
+}
+
 void MainWindow::ActMission(){
     QMessageBox::information(this, "Mission Statement", "Community Service Awards program made for FBLA");
 }
@@ -54,10 +59,6 @@ void MainWindow::ActDev(){
     QMessageBox::information(this, "Developer | Victor Alvizo", "Program created by Victor Alvizo");
 }
 
-void MainWindow::ActAdHelp(){
-    QMessageBox::information(this, "Admin Help", "Click on the admin login and proceed to enter admin information. Inside admin panel various options regarding members appears");
-}
-
-void MainWindow::ActMemHelp(){
-    QMessageBox::information(this, "Member Help", "Sign in using your login, if any help is needed regarding information on account inquire the admin. Inside panel various options such as logging hours appears");
+void MainWindow::ActGithub(){
+    QDesktopServices::openUrl(QUrl("https://github.com/VictorAlvizo/FBLA-Community-Service-Awards"));
 }

@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -38,6 +38,9 @@
       </property>
      </widget>
     </item>
+    <item row="1" column="0">
+     <widget class="QSpinBox" name="hourSpin"/>
+    </item>
     <item row="0" column="1">
      <widget class="QLabel" name="nameLabel">
       <property name="font">
@@ -53,8 +56,12 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QSpinBox" name="hourSpin"/>
+    <item row="3" column="0">
+     <widget class="QLineEdit" name="categoryInput">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </item>
     <item row="1" column="1">
      <widget class="QLineEdit" name="nameInput"/>
@@ -85,24 +92,21 @@
        </font>
       </property>
       <property name="text">
-       <string>Event Date</string>
+       <string>Event Date: </string>
       </property>
      </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLineEdit" name="categoryInput">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QDateEdit" name="dateEdit"/>
     </item>
     <item row="4" column="0">
      <widget class="QPushButton" name="submitButton">
       <property name="text">
        <string>Save</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="dateButton">
+      <property name="text">
+       <string>Change Date</string>
       </property>
      </widget>
     </item>

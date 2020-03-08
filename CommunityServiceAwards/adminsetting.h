@@ -5,6 +5,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
+#include <QPixmap>
 
 namespace Ui {
 class AdminSetting;

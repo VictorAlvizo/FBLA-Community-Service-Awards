@@ -128,6 +128,19 @@
     <string/>
    </property>
   </widget>
+  <widget class="QCheckBox" name="passwordBox">
+   <property name="geometry">
+    <rect>
+     <x>14</x>
+     <y>263</y>
+     <width>72</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

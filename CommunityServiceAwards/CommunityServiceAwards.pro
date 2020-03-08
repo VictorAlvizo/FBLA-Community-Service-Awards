@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui printsupport
+QT       += core gui printsupport charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -37,7 +37,14 @@ SOURCES += \
     memberedit.cpp \
     eventview.cpp \
     loghours.cpp \
-    adminsetting.cpp
+    adminsetting.cpp \
+    calendarwindow.cpp \
+    membersetting.cpp \
+    memberreport.cpp \
+    databox.cpp \
+    report.cpp \
+    qnawindow.cpp \
+    filereader.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -53,7 +60,14 @@ HEADERS += \
     memberedit.h \
     eventview.h \
     loghours.h \
-    adminsetting.h
+    adminsetting.h \
+    calendarwindow.h \
+    membersetting.h \
+    memberreport.h \
+    databox.h \
+    report.h \
+    qnawindow.h \
+    filereader.h
 
 FORMS += \
         mainwindow.ui \
@@ -67,7 +81,13 @@ FORMS += \
     memberedit.ui \
     eventview.ui \
     loghours.ui \
-    adminsetting.ui
+    adminsetting.ui \
+    calendarwindow.ui \
+    membersetting.ui \
+    memberreport.ui \
+    databox.ui \
+    report.ui \
+    qnawindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

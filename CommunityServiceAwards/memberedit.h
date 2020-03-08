@@ -5,9 +5,8 @@
 #include <QPixmap>
 #include <QVector>
 #include <QMessageBox>
-#include <QFile>
-#include <QTextStream>
 #include "member.h"
+#include "filereader.h"
 
 namespace Ui {
 class memberEdit;

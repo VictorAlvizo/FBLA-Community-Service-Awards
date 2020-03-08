@@ -4,14 +4,15 @@
 #include <QDialog>
 #include <QPixmap>
 #include <QVector>
-#include <QDir>
-#include <QFile>
-#include <QTextStream>
+#include <QMessageBox>
+#include <QFileDialog>
 #include "member.h"
 #include "memberreg.h"
 #include "adminevent.h"
 #include "memberedit.h"
 #include "adminsetting.h"
+#include "report.h"
+#include "filereader.h"
 
 namespace Ui {
 class AdminPanel;
@@ -31,16 +32,28 @@ private:
     void GetMembers();
     void UpdateList();
 
+    int memberIndex = -1;
+
     QVector<Member> * m_Members = new QVector<Member>;
 
 private slots:
     void LogoutButton();
     void RegisterButton();
+
     void EventButton();
     void EditButton();
+
+    void ReportButton();
+
+    void SearchMember(QString text);
+
+    void BackupButton();
+    void RetriveButton();
+    void ExportButton();
+
     void SettingButton();
 
-    void ItemClicked(int index);
+    void ItemClicked(int slotIndex);
 };
 
 #endif // ADMINPANEL_H

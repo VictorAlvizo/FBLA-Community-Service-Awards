@@ -13,5 +13,7 @@ struct Member{
      QString m_Username, m_Password;
      QString m_Grade;
 
+     int m_ID;
+
      QVector<Event> m_Events; //Store all the events member may have
 };

@@ -23,6 +23,8 @@ AdminLoginWindow::AdminLoginWindow(QWidget *parent) :
 
     connect(ui->loginButton, SIGNAL(released()), this, SLOT(LoginButton()));
     connect(ui->backButton, SIGNAL(released()), this, SLOT(BackButton()));
+
+    connect(ui->passwordBox, SIGNAL(clicked(bool)), this, SLOT(ShowPassword(bool)));
 }
 
 AdminLoginWindow::~AdminLoginWindow()
@@ -100,4 +102,12 @@ LoginInformation AdminLoginWindow::GetInformation(){
 void AdminLoginWindow::BackButton(){
     parentWidget()->show();
     this->close();
+}
+
+void AdminLoginWindow::ShowPassword(bool value){
+    if(value){
+        ui->passwordLE->setEchoMode(QLineEdit::Normal);
+    }else{
+        ui->passwordLE->setEchoMode(QLineEdit::Password);
+    }
 }

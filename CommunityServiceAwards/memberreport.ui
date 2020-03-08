@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MemberReport</class>
+ <widget class="QDialog" name="MemberReport">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>780</width>
+    <height>586</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="2">
+    <layout class="QVBoxLayout" name="StackGrid">
+     <item>
+      <layout class="QVBoxLayout" name="chartWidget">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+      </layout>
+     </item>
+     <item>
+      <widget class="QComboBox" name="yearDropDown"/>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <layout class="QVBoxLayout" name="pieWidget">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+    </layout>
+   </item>
+   <item row="1" column="1">
+    <layout class="QVBoxLayout" name="infoLbaels">
+     <item>
+      <widget class="QLabel" name="totEventLabel">
+       <property name="font">
+        <font>
+         <family>Bebas Neue</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Total Events:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="totHoursLabel">
+       <property name="font">
+        <font>
+         <family>Bebas Neue</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Total Hours: </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="eventYearLabel">
+       <property name="font">
+        <font>
+         <family>Bebas Neue</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Events in year: </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="eventYearHour">
+       <property name="font">
+        <font>
+         <family>Bebas Neue</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Hour(s) in Year: </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="themeCheck">
+       <property name="text">
+        <string>Dark Mode</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

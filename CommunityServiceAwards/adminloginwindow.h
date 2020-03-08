@@ -36,6 +36,8 @@ private:
 private slots:
     void LoginButton();
     void BackButton();
+
+    void ShowPassword(bool value);
 };
 
 #endif // ADMINLOGINWINDOW_H

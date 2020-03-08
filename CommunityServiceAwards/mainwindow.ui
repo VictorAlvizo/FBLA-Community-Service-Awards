@@ -77,7 +77,7 @@
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>350</y>
+      <y>310</y>
       <width>191</width>
       <height>51</height>
      </rect>
@@ -90,6 +90,25 @@
     </property>
     <property name="text">
      <string>Member Login</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="helpButton">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>380</y>
+      <width>191</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Malgun Gothic</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Help</string>
     </property>
    </widget>
   </widget>
@@ -109,16 +128,9 @@
     <addaction name="actionMission"/>
     <addaction name="actionQT"/>
     <addaction name="actionDeveloper"/>
-   </widget>
-   <widget class="QMenu" name="menuHelp">
-    <property name="title">
-     <string>Help</string>
-    </property>
-    <addaction name="adminHelp"/>
-    <addaction name="memberHelp"/>
+    <addaction name="actionGithub"/>
    </widget>
    <addaction name="menuAbout"/>
-   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionMission">
@@ -136,14 +148,9 @@
     <string>Developer</string>
    </property>
   </action>
-  <action name="adminHelp">
+  <action name="actionGithub">
    <property name="text">
-    <string>Admin Help</string>
-   </property>
-  </action>
-  <action name="memberHelp">
-   <property name="text">
-    <string>Member Help</string>
+    <string>Github</string>
    </property>
   </action>
  </widget>

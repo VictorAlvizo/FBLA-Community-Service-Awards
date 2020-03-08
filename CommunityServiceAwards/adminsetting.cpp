@@ -11,6 +11,11 @@ AdminSetting::AdminSetting(QWidget *parent) :
     this->setFixedSize(QSize(400, 300));
     this->setWindowTitle("Admin Settings");
 
+    QPixmap logoImage(":/images/images/Logo.png");
+    QPixmap iconImage(":/images/images/LogoTitleIcon.png");
+
+    this->setWindowIcon(iconImage);
+
     ui->passwordInput->setEchoMode(QLineEdit::Password);
 
     connect(ui->submitButton, SIGNAL(released()), this, SLOT(SubmitButton()));
@@ -49,7 +54,7 @@ void AdminSetting::GetInformation(){
 
 bool AdminSetting::isValid(){ //Check possible errors which may occur during file writing, spaces, empty, invalid input
     if(m_OldPassword != ui->oldInput->text()){
-        QMessageBox::warning(this, "Incorrect Password", "Old passwords don't match");
+        QMessageBox::warning(this, "Incorrect Password", "Old password is incorrect");
         return false;
     }
 

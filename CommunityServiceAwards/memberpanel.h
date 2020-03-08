@@ -4,11 +4,13 @@
 #include <QDialog>
 #include <QPixmap>
 #include <QListWidget>
+#include <QListWidgetItem>
 #include <QPrinter>
 #include <QPrintDialog>
 #include <QPainter>
 #include "eventview.h"
 #include "loghours.h"
+#include "membersetting.h"
 #include "member.h"
 
 namespace Ui {
@@ -28,20 +30,22 @@ public:
 private:
     Ui::MemberPanel *ui;
 
-    void FillList();
+    void SortDates();
 
     void RefreshList();
 
+    QListWidgetItem* MonthItem(const QDate &date);
+    QListWidgetItem* WeekItem(const QDate &date);
+
     Member m_Member;
     int m_MemberIndex;
-
     int m_Hours;
 
 private slots:
     void EventClicked(QListWidgetItem * item);
 
     void LogButton();
-    void PrintButton();
+    void SettingsButton();
     void ExitButton();
 };
 

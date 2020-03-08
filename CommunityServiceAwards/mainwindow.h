@@ -4,8 +4,11 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QPixmap>
+#include <QDesktopServices>
+#include <QUrl>
 #include "adminloginwindow.h"
 #include "memberloginwindow.h"
+#include "qnawindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -25,12 +28,12 @@ private:
 private slots:
     void AdminButtonLogin();
     void MemberButtonLogin();
+    void HelpButton();
 
     void ActMission();
     void ActQT();
     void ActDev();
-    void ActAdHelp();
-    void ActMemHelp();
+    void ActGithub();
 };
 
 #endif // MAINWINDOW_H

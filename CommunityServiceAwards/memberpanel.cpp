@@ -1,7 +1,6 @@
 #include "memberpanel.h"
 #include "ui_memberpanel.h"
 #include "mainwindow.h"
-#include <QDebug>
 
 MemberPanel::MemberPanel(QWidget *parent) :
     QDialog(parent),
@@ -23,7 +22,7 @@ MemberPanel::MemberPanel(QWidget *parent) :
     connect(ui->eventList, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this, SLOT(EventClicked(QListWidgetItem *)));
 
     connect(ui->logButton, SIGNAL(released()), this, SLOT(LogButton()));
-    connect(ui->printButton, SIGNAL(released()), this, SLOT(PrintButton()));
+    connect(ui->settingsButton, SIGNAL(released()), this, SLOT(SettingsButton()));
     connect(ui->exitButton, SIGNAL(released()), this, SLOT(ExitButton()));
 }
 
@@ -31,7 +30,6 @@ MemberPanel::~MemberPanel()
 {
     delete ui;
 }
-
 
 void MemberPanel::ReceiveMember(Member newMember, int memIndex){
     m_Member = newMember;
@@ -48,20 +46,114 @@ void MemberPanel::ReceiveMember(Member newMember, int memIndex){
 
     ui->hourLabel->setText(QString::number(m_Hours));
 
-    RefreshList();
+    SortDates();
+}
+
+void MemberPanel::SortDates(){
+    QList<QDate> dateList;
+
+    for(Event event : m_Member.m_Events){ //Store all the dates into dateList
+        QDate date = QDate::fromString(event.m_Date, "MM/dd/yyyy");
+        dateList.push_back(date);
+    }
+
+    std::sort(dateList.begin(), dateList.end()); //Sorts list in order, std::sort() is refrenced so list is updated
+
+    QVector<Event> sortedEvents; //Will rewrite member's events
+    QString dateString; //Temp string
+
+    for(int i = 0; i < dateList.size(); i++){ //Another for loop to identify events related to sorted dates
+        dateString = dateList[i].toString("MM/dd/yyyy");
+
+        for(int j = 0; j < m_Member.m_Events.size(); j++){ //Loop through each event to find key
+            if(m_Member.m_Events[j].m_Date == dateString){
+                    sortedEvents.push_back(m_Member.m_Events[j]); //Push, will naturally be in sorted order
+                    m_Member.m_Events[j].m_Date = ""; //Incase of events with the same date, don't rewrite data
+                    break;
+                }
+            }
+        }
+
+       std::reverse(sortedEvents.begin(), sortedEvents.end()); //Sort from neweset to oldest
+
+       m_Member.m_Events = sortedEvents; //Set the member's data = to the sorted event list
+       RefreshList();
 }
 
 void MemberPanel::RefreshList(){
     ui->eventList->clear();
+    QDate date;
+    QDate lastDate; //Used so similar date headers aren't repeated
+    bool newMonth = false; //Used due to if the current month's week is the same as the last months last week, won't print
 
-    for(Event event : m_Member.m_Events){
-        ui->eventList->addItem(event.m_EventName + " " + QString::number(event.m_Hours));
+    for(int i = 0; i < m_Member.m_Events.size(); i++){
+        date = QDate::fromString(m_Member.m_Events[i].m_Date, "MM/dd/yyyy");
+
+        if(i != 0){ //Don't want to get information from index -1! Protect against that
+             lastDate = QDate::fromString(m_Member.m_Events[i - 1].m_Date, "MM/dd/yyyy");
+        }
+
+        if(date.month() != lastDate.month() || date.year() != lastDate.year()){
+            ui->eventList->addItem(MonthItem(date));
+            newMonth = true;
+        }
+
+        if((date.day() / 7) + 1 != (lastDate.day() / 7) + 1 || newMonth){
+            ui->eventList->addItem(WeekItem(date));
+            newMonth = false; //No longer a new month set to false don't make exception
+        }
+
+        QListWidgetItem * eventLabel = new QListWidgetItem();
+        eventLabel->setText(m_Member.m_Events[i].m_EventName.replace("_", " ") + " | "
+                            + m_Member.m_Events[i].m_Category + " | "
+                            + QString::number(m_Member.m_Events[i].m_Hours) + " hour(s) | "
+                            + m_Member.m_Events[i].m_Date);
+
+        eventLabel->setData(Qt::UserRole, i); //Send it with it's index
+        ui->eventList->addItem(eventLabel);
     }
 }
 
+QListWidgetItem* MemberPanel::MonthItem(const QDate &date){
+    QListWidgetItem * monthLabel = new QListWidgetItem();
+    monthLabel->setData(Qt::UserRole, -1);
+
+    QFont monthFont("Roboto");
+    monthFont.setPointSize(12);
+    monthFont.setBold(true);
+
+    monthLabel->setText(date.toString("MMMM") + " " + date.toString("yyyy"));
+    monthLabel->setFont(monthFont);
+
+    return monthLabel;
+}
+
+QListWidgetItem* MemberPanel::WeekItem(const QDate &date){
+    QListWidgetItem * weekLabel = new QListWidgetItem();
+    weekLabel->setData(Qt::UserRole, -1);
+
+    QFont weekFont("Segoe UI");
+    weekFont.setPointSize(10);
+    weekFont.setUnderline(true);
+    weekFont.setItalic(true);
+
+    int weekStamp = (date.day() / 7) + 1;
+
+    weekLabel->setFont(weekFont);
+    weekLabel->setText("Week " + QString::number(weekStamp));
+
+    return weekLabel;
+}
+
 void MemberPanel::EventClicked(QListWidgetItem * item){
+    int clickedIndex = item->data(Qt::UserRole).toInt();
+
+    if(clickedIndex == -1){
+        return;
+    }
+
     EventView * eventView = new EventView();
-    eventView->RecieveEvent(m_Member.m_Events.at(ui->eventList->currentRow()));
+    eventView->RecieveEvent(m_Member.m_Events[clickedIndex]);
     eventView->exec();
 }
 
@@ -69,40 +161,12 @@ void MemberPanel::LogButton(){
     LogHours * logWindow = new LogHours(this);
     logWindow->RecieveMember(m_MemberIndex);
     logWindow->exec();
-
-    RefreshList();
 }
 
-void MemberPanel::PrintButton(){
-    QPrinter printer;
-    QPrintDialog printDialog(&printer, this);
-
-    if(printDialog.exec() == QDialog::Rejected){
-        QMessageBox::critical(this, "Printer Rejected", "Printer chosen has been rejected");
-        return;
-    }
-
-    //String to print out in file
-    QString printText = "Member Name: " + m_Member.m_FirstName + " " + m_Member.m_LastName + "\n"
-                        + "Member Grade: " + m_Member.m_Grade + "\n"
-                        + "Member Hours: " + QString::number(m_Hours)
-                        + "\n----------------- EVENTS -----------------\n";
-
-    //Loop through each event and add it to the print string as well
-    for(Event event : m_Member.m_Events){
-        printText += "Event Name: " + event.m_EventName + "\n" + "Event Category: " + event.m_Category + "\n"
-                     + "Event Date: " + event.m_Date + "\n" + "Event Hour(s): " + QString::number(event.m_Hours)
-                     + "\n--------------------------\n";
-    }
-
-    QPainter textPainter;
-    textPainter.begin(&printer);
-
-    textPainter.drawText(100, 100, 2000, 2000, Qt::AlignLeft|Qt::AlignTop, printText);
-
-    textPainter.end();
-
-    QMessageBox::information(this, "File Printed", "Member information has been printed");
+void MemberPanel::SettingsButton(){
+    MemberSetting * memSetting = new MemberSetting();
+    memSetting->RecieveInformation(m_MemberIndex);
+    memSetting->exec();
 }
 
 void MemberPanel::ExitButton(){

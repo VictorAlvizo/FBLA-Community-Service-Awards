@@ -24,6 +24,8 @@ MemberLoginWindow::MemberLoginWindow(QWidget *parent) :
 
     connect(ui->loginButton, SIGNAL(released()), this, SLOT(LoginButton()));
     connect(ui->backButton, SIGNAL(released()), this, SLOT(BackButton()));
+
+    connect(ui->passwordBox, SIGNAL(clicked(bool)), this, SLOT(ShowPassword(bool)));
 }
 
 MemberLoginWindow::~MemberLoginWindow()
@@ -39,7 +41,7 @@ void MemberLoginWindow::LoginButton(){
         QMessageBox::information(this, "Missing File Created", "Information folder not found, new one has been created.");
         return;
     }
-    
+
     if(ui->usernameLE->text().isEmpty() || ui->passwordLE->text().isEmpty()){
         QMessageBox::warning(this, "Empty input(s)", "Username and Password box must be filled in.");
         return;
@@ -79,14 +81,14 @@ void MemberLoginWindow::LoginButton(){
             memIndex++;
 
             tempMember->m_FirstName = testString;
-            in >> tempMember->m_LastName >> tempMember->m_Username >> tempMember->m_Password >> tempMember->m_Grade;
+            in >> tempMember->m_LastName >> tempMember->m_Username >> tempMember->m_Password >> tempMember->m_Grade >> tempMember->m_ID;
 
             //Check if that is the member we're looking for
             if(username == tempMember->m_Username && password == tempMember->m_Password){
                 found = true;
             }
         }else{
-            if(found){ //If member was already found and it has looped through all events go to panel
+            if(found){ //If member was already found and it has looped through all events go to panel, uses ~
                 readMember.close();
 
                 this->close();
@@ -107,4 +109,12 @@ void MemberLoginWindow::LoginButton(){
 void MemberLoginWindow::BackButton(){ //Show the parent window (Home) and close this one
     parentWidget()->show();
     this->close();
+}
+
+void MemberLoginWindow::ShowPassword(bool value){
+    if(value){
+        ui->passwordLE->setEchoMode(QLineEdit::Normal);
+    }else{
+        ui->passwordLE->setEchoMode(QLineEdit::Password);
+    }
 }

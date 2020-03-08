@@ -7,23 +7,23 @@
     <x>0</x>
     <y>0</y>
     <width>230</width>
-    <height>300</height>
+    <height>405</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>10</y>
+     <x>21</x>
+     <y>11</y>
      <width>191</width>
-     <height>481</height>
+     <height>391</height>
     </rect>
    </property>
-   <layout class="QFormLayout" name="formLayout">
-    <item row="0" column="0" colspan="2">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
      <widget class="QLabel" name="nameLabel">
       <property name="font">
        <font>
@@ -36,10 +36,10 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
+    <item>
      <widget class="QLineEdit" name="nameOutput"/>
     </item>
-    <item row="5" column="0" colspan="2">
+    <item>
      <widget class="QLabel" name="categoryLabel">
       <property name="font">
        <font>
@@ -52,27 +52,14 @@
       </property>
      </widget>
     </item>
-    <item row="8" column="0">
-     <widget class="QLabel" name="otherLabel">
-      <property name="font">
-       <font>
-        <family>Kenyan Coffee</family>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Other</string>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="1">
+    <item>
      <widget class="QLineEdit" name="otherInput">
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
-    <item row="14" column="0">
+    <item>
      <widget class="QLabel" name="hourLabel">
       <property name="font">
        <font>
@@ -85,10 +72,10 @@
       </property>
      </widget>
     </item>
-    <item row="17" column="1">
+    <item>
      <widget class="QSpinBox" name="hourBox"/>
     </item>
-    <item row="19" column="0" colspan="2">
+    <item>
      <widget class="QLabel" name="dateLabel">
       <property name="font">
        <font>
@@ -97,14 +84,18 @@
        </font>
       </property>
       <property name="text">
-       <string>Date</string>
+       <string>Date: </string>
       </property>
      </widget>
     </item>
-    <item row="20" column="1">
-     <widget class="QDateEdit" name="dateEdit"/>
+    <item>
+     <widget class="QPushButton" name="dateButton">
+      <property name="text">
+       <string>Select Date</string>
+      </property>
+     </widget>
     </item>
-    <item row="23" column="0" colspan="2">
+    <item>
      <widget class="QPushButton" name="submitButton">
       <property name="text">
        <string>Log</string>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Report</class>
+ <widget class="QDialog" name="Report">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>741</width>
+    <height>567</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="2">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="centralPie"/>
+     </item>
+     <item>
+      <widget class="QComboBox" name="yearDropDown"/>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <layout class="QVBoxLayout" name="piechart"/>
+   </item>
+   <item row="1" column="1">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QLabel" name="hourTotal">
+       <property name="font">
+        <font>
+         <family>Bebas Neue</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Total Hour(s): </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="hourYearTotal">
+       <property name="font">
+        <font>
+         <family>Bebas Neue</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Total Hour(s) in yyyy:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="mostHoursLabel">
+       <property name="font">
+        <font>
+         <family>Bebas Neue</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Most Hour(s) in yyyy:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="leastHoursLabel">
+       <property name="font">
+        <font>
+         <family>Bebas Neue</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Least Hour(s) in yyyy:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="darkBox">
+       <property name="text">
+        <string>Dark Mode</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

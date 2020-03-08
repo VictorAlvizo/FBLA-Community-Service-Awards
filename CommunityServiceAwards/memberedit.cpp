@@ -11,6 +11,11 @@ memberEdit::memberEdit(QWidget *parent) :
     this->setFixedSize(QSize(550, 400));
     this->setWindowTitle("Member Settings");
 
+    QPixmap logoImage(":/images/images/Logo.png");
+    QPixmap iconImage(":/images/images/LogoTitleIcon.png");
+
+    this->setWindowIcon(iconImage);
+
     connect(ui->submitButton, SIGNAL(released()), this, SLOT(SubmitButton()));
     connect(ui->removeButton, SIGNAL(released()), this, SLOT(RemoveButton()));
 }
@@ -29,6 +34,7 @@ void memberEdit::ReceiveInformation(QVector<Member> members, int memberIndex){
     ui->lastInput->setText(m_Members[memberIndex].m_LastName);
     ui->userInput->setText(m_Members[memberIndex].m_Username);
     ui->passwordInput->setText(m_Members[memberIndex].m_Password);
+    ui->gradeDropDown->setCurrentText(m_Members[m_MemberIndex].m_Grade);
 }
 
 bool memberEdit::isValid(){
@@ -39,6 +45,11 @@ bool memberEdit::isValid(){
 
     if(ui->firstInput->text().contains(" ") || ui->lastInput->text().contains(" ") || ui->userInput->text().contains(" ") || ui->passwordInput->text().contains(" ")){
         QMessageBox::warning(this, "Invalid Characters", "Input fields may not have spaces");
+        return false;
+    }
+
+    if(ui->firstInput->text().contains(QRegExp("[^a-zA-Z]"))){ //^ negates, if not a letter invalidate
+        QMessageBox::warning(this, "Invalid Input", "First name can only contain letters");
         return false;
     }
 
@@ -85,32 +96,8 @@ void memberEdit::RemoveButton(){
 }
 
 void memberEdit::SaveInformation(){
-    QFile writeFile("info/memberList.txt");
-
-    if(!writeFile.open(QIODevice::WriteOnly | QIODevice::Text)){
+    if(!FileReader::WriteMembers(m_Members, "info/memberList.txt")){
         QMessageBox::critical(this, "Error Writing To File", "Unable to write to member file.");
-
-        writeFile.close();
         return;
-    }
-
-    QTextStream out(&writeFile);
-
-    //Rewrite file with new information
-    for(int i = 0; i < m_Members.size(); i++){
-        out << "\n" << m_Members.at(i).m_FirstName << " " << m_Members.at(i).m_LastName
-            << " " << m_Members.at(i).m_Username << " " << m_Members.at(i).m_Password
-            << " " << m_Members.at(i).m_Grade;
-
-        for(int j = 0; j < m_Members.at(i).m_Events.size(); j++){
-            out << "\n* ";
-
-            out << m_Members.at(i).m_Events.at(j).m_Hours << " "
-                << m_Members.at(i).m_Events.at(j).m_EventName << " "
-                << m_Members.at(i).m_Events.at(j).m_Category << " "
-                << m_Members.at(i).m_Events.at(j).m_Date;
-        }
-
-        out << "\n~";
     }
 }

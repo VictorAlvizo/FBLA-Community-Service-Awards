@@ -4,10 +4,9 @@
 #include <QDialog>
 #include <QPixmap>
 #include <QMessageBox>
-#include <QFile>
-#include <QTextStream>
 #include <QVector>
 #include "member.h"
+#include "filereader.h"
 
 namespace Ui {
 class LogHours;
@@ -26,7 +25,6 @@ public:
 private:
     Ui::LogHours *ui;
 
-    void FillList();
     void Exit();
 
     bool isValid();
@@ -35,6 +33,9 @@ private:
     QVector<Member> m_StoreMembers;
 
 private slots:
+    void DateButton();
+    void GetDate(QString date);
+
     void SubmitButton();
 };
 

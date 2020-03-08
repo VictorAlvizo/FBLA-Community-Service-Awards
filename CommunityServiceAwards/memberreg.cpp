@@ -1,5 +1,6 @@
 #include "memberreg.h"
 #include "ui_memberreg.h"
+#include <QDebug>
 
 MemberReg::MemberReg(QWidget *parent) :
     QDialog(parent),
@@ -12,7 +13,7 @@ MemberReg::MemberReg(QWidget *parent) :
     this->setWindowIcon(iconImage);
 
     this->setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
-    this->setFixedSize(QSize(500, 500));
+    this->setFixedSize(QSize(500, 397));
     this->setWindowTitle("Member Registration");
 
     ui->passwordInput->setEchoMode(QLineEdit::Password);
@@ -36,6 +37,7 @@ void MemberReg::SubmitButton(){
     QString username = ui->userInput->text();
     QString password = ui->passwordInput->text();
     QString grade = ui->gradeDropDown->currentText();
+    int idNumber = ++m_MemberList[m_MemberList.size() - 1].m_ID; //Get the last persons ID and increase +1
 
     if(isValidInput(firstName, lastName, username, password)){
         if(!QDir("info/").exists()){
@@ -50,7 +52,8 @@ void MemberReg::SubmitButton(){
         }
 
         QTextStream out(&writeMember);
-        out << "\n" << firstName << " " << lastName << " " << username << " " << password << " " << grade << "\n~";
+        out << "\n" << firstName << " " << lastName << " " << username << " " << password << " "
+            << grade << " " << QString::number(idNumber) << "\n~";
 
         writeMember.close();
 
@@ -65,23 +68,28 @@ void MemberReg::SubmitButton(){
 
 bool MemberReg::isValidInput(const QString &firstName, const QString &lastName, const QString &username, const QString &password){
     if(firstName.contains(" ") || lastName.contains(" ") || username.contains(" ") || password.contains(" ")){
-        QMessageBox::critical(this, "Invalid Input", "Inputs may not contain spaces");
+        QMessageBox::warning(this, "Invalid Input", "Inputs may not contain spaces");
+        return false;
+    }
+
+    if(firstName.contains(QRegExp("[^a-zA-Z]"))){ //^ negates, if not a letter invalidate
+        QMessageBox::warning(this, "Invalid Input", "First name can only contain letters");
         return false;
     }
 
     if(username.count() > 13 || password.count() > 13){
-        QMessageBox::critical(this, "Invalid Input", "Username or password too large, may only contain up to 12 characters");
+        QMessageBox::warning(this, "Invalid Input", "Username or password too large, may only contain up to 12 characters");
         return false;
     }
 
     if(firstName.isEmpty() || lastName.isEmpty() || username.isEmpty() || password.isEmpty()){
-        QMessageBox::critical(this, "Invalid Input", "All inputs must be filled");
+        QMessageBox::warning(this, "Invalid Input", "All inputs must be filled");
         return false;
     }
 
     for(Member currentMember : m_MemberList){
         if(username == currentMember.m_Username){
-            QMessageBox::critical(this, "Invalid Input", "The username: " + username + " is already in use");
+            QMessageBox::warning(this, "Invalid Input", "The username: " + username + " is already in use");
             return false;
         }
     }

@@ -17,9 +17,9 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>220</y>
+     <y>250</y>
      <width>251</width>
-     <height>241</height>
+     <height>211</height>
     </rect>
    </property>
    <property name="text">
@@ -31,14 +31,141 @@
     <rect>
      <x>310</x>
      <y>20</y>
-     <width>431</width>
-     <height>451</height>
+     <width>421</width>
+     <height>471</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <property name="spacing">
      <number>2</number>
     </property>
+    <item row="3" column="0" colspan="2">
+     <widget class="QLabel" name="passwordLabel">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Password: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QLabel" name="hoursOutput">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QLabel" name="gradeOutput">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLineEdit" name="searchBox"/>
+    </item>
+    <item row="6" column="1">
+     <widget class="QPushButton" name="eventButton">
+      <property name="font">
+       <font>
+        <family>Segoe UI Semibold</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>View Events</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0" colspan="2">
+     <widget class="QLabel" name="gradeLabel">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Grade: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0" colspan="2">
+     <widget class="QLabel" name="hoursLabel">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Hour(s): </string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QLabel" name="passwordOutput">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
+     <widget class="QPushButton" name="editButton">
+      <property name="font">
+       <font>
+        <family>Segoe UI Semibold</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Edit</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLabel" name="userOutput">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QLabel" name="userLabel">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Username: </string>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="0">
      <widget class="QLabel" name="nameLabel">
       <property name="font">
@@ -64,19 +191,19 @@
      </widget>
     </item>
     <item row="1" column="0" colspan="2">
-     <widget class="QLabel" name="userLabel">
+     <widget class="QLabel" name="idLabel">
       <property name="font">
        <font>
         <pointsize>20</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>Username: </string>
+       <string>ID:</string>
       </property>
      </widget>
     </item>
     <item row="1" column="2">
-     <widget class="QLabel" name="userOutput">
+     <widget class="QLabel" name="idOutput">
       <property name="font">
        <font>
         <pointsize>20</pointsize>
@@ -84,118 +211,18 @@
       </property>
       <property name="text">
        <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0" colspan="2">
-     <widget class="QLabel" name="passwordLabel">
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Password: </string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="2">
-     <widget class="QLabel" name="passwordOutput">
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0" colspan="2">
-     <widget class="QLabel" name="gradeLabel">
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Grade: </string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="2">
-     <widget class="QLabel" name="gradeOutput">
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0" colspan="2">
-     <widget class="QLabel" name="hoursLabel">
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Hour(s): </string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="2">
-     <widget class="QLabel" name="hoursOutput">
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QPushButton" name="eventButton">
-      <property name="font">
-       <font>
-        <family>Segoe UI Semibold</family>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>View Events</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1" colspan="2">
-     <widget class="QPushButton" name="editButton">
-      <property name="font">
-       <font>
-        <family>Segoe UI Semibold</family>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Edit</string>
       </property>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>20</y>
+     <x>11</x>
+     <y>40</y>
      <width>291</width>
-     <height>181</height>
+     <height>213</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
@@ -212,8 +239,8 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QPushButton" name="logoutButton">
+    <item row="3" column="1">
+     <widget class="QPushButton" name="settingButton">
       <property name="font">
        <font>
         <family>Segoe UI Semibold</family>
@@ -222,7 +249,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Logout</string>
+       <string>Settings</string>
       </property>
      </widget>
     </item>
@@ -243,8 +270,8 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
-     <widget class="QPushButton" name="settingButton">
+    <item row="4" column="1">
+     <widget class="QPushButton" name="backupButton">
       <property name="font">
        <font>
         <family>Segoe UI Semibold</family>
@@ -253,7 +280,63 @@
        </font>
       </property>
       <property name="text">
-       <string>Settings</string>
+       <string>Backup Data</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QPushButton" name="retriveButton">
+      <property name="font">
+       <font>
+        <family>Segoe UI Semibold</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Retrive Data</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="reportButton">
+      <property name="font">
+       <font>
+        <family>Segoe UI Semibold</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Report</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="logoutButton">
+      <property name="font">
+       <font>
+        <family>Segoe UI Semibold</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Logout</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QPushButton" name="exportButton">
+      <property name="font">
+       <font>
+        <family>Segoe UI Semibold</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Export Data</string>
       </property>
      </widget>
     </item>

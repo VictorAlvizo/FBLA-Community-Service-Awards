@@ -3,10 +3,10 @@
 
 #include <QDialog>
 #include <QVector>
-#include <QFile>
-#include <QTextStream>
 #include <QMessageBox>
+#include <QPixmap>
 #include "member.h"
+#include "filereader.h"
 
 namespace Ui {
 class EventEdit;
@@ -35,6 +35,8 @@ private:
     QVector<Member> m_StoreMembers;
 
 private slots:
+    void DateButton();
+    void GetDate(QString date);
     void SubmitButton();
 };
 

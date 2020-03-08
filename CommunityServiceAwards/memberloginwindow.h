@@ -28,6 +28,8 @@ private:
 private slots:
     void LoginButton();
     void BackButton();
+
+    void ShowPassword(bool value);
 };
 
 #endif // MEMBERLOGINWINDOW_H
