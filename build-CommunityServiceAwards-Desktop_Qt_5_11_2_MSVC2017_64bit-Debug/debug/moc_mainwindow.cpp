@@ -35,16 +35,16 @@ QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
 QT_MOC_LITERAL(1, 11, 16), // "AdminButtonLogin"
 QT_MOC_LITERAL(2, 28, 0), // ""
 QT_MOC_LITERAL(3, 29, 17), // "MemberButtonLogin"
-QT_MOC_LITERAL(4, 47, 10), // "ActMission"
-QT_MOC_LITERAL(5, 58, 5), // "ActQT"
-QT_MOC_LITERAL(6, 64, 6), // "ActDev"
-QT_MOC_LITERAL(7, 71, 9), // "ActAdHelp"
-QT_MOC_LITERAL(8, 81, 10) // "ActMemHelp"
+QT_MOC_LITERAL(4, 47, 10), // "HelpButton"
+QT_MOC_LITERAL(5, 58, 10), // "ActMission"
+QT_MOC_LITERAL(6, 69, 5), // "ActQT"
+QT_MOC_LITERAL(7, 75, 6), // "ActDev"
+QT_MOC_LITERAL(8, 82, 9) // "ActGithub"
 
     },
     "MainWindow\0AdminButtonLogin\0\0"
-    "MemberButtonLogin\0ActMission\0ActQT\0"
-    "ActDev\0ActAdHelp\0ActMemHelp"
+    "MemberButtonLogin\0HelpButton\0ActMission\0"
+    "ActQT\0ActDev\0ActGithub"
 };
 #undef QT_MOC_LITERAL
 
@@ -90,11 +90,11 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->AdminButtonLogin(); break;
         case 1: _t->MemberButtonLogin(); break;
-        case 2: _t->ActMission(); break;
-        case 3: _t->ActQT(); break;
-        case 4: _t->ActDev(); break;
-        case 5: _t->ActAdHelp(); break;
-        case 6: _t->ActMemHelp(); break;
+        case 2: _t->HelpButton(); break;
+        case 3: _t->ActMission(); break;
+        case 4: _t->ActQT(); break;
+        case 5: _t->ActDev(); break;
+        case 6: _t->ActGithub(); break;
         default: ;
         }
     }

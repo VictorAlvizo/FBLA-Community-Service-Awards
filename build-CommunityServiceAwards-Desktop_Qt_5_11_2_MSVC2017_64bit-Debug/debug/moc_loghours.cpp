@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_LogHours_t {
-    QByteArrayData data[3];
-    char stringdata0[23];
+    QByteArrayData data[6];
+    char stringdata0[47];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,11 +32,15 @@ struct qt_meta_stringdata_LogHours_t {
 static const qt_meta_stringdata_LogHours_t qt_meta_stringdata_LogHours = {
     {
 QT_MOC_LITERAL(0, 0, 8), // "LogHours"
-QT_MOC_LITERAL(1, 9, 12), // "SubmitButton"
-QT_MOC_LITERAL(2, 22, 0) // ""
+QT_MOC_LITERAL(1, 9, 10), // "DateButton"
+QT_MOC_LITERAL(2, 20, 0), // ""
+QT_MOC_LITERAL(3, 21, 7), // "GetDate"
+QT_MOC_LITERAL(4, 29, 4), // "date"
+QT_MOC_LITERAL(5, 34, 12) // "SubmitButton"
 
     },
-    "LogHours\0SubmitButton\0"
+    "LogHours\0DateButton\0\0GetDate\0date\0"
+    "SubmitButton"
 };
 #undef QT_MOC_LITERAL
 
@@ -46,7 +50,7 @@ static const uint qt_meta_data_LogHours[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -54,9 +58,13 @@ static const uint qt_meta_data_LogHours[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x08 /* Private */,
+       1,    0,   29,    2, 0x08 /* Private */,
+       3,    1,   30,    2, 0x08 /* Private */,
+       5,    0,   33,    2, 0x08 /* Private */,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    4,
     QMetaType::Void,
 
        0        // eod
@@ -68,11 +76,12 @@ void LogHours::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         LogHours *_t = static_cast<LogHours *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->SubmitButton(); break;
+        case 0: _t->DateButton(); break;
+        case 1: _t->GetDate((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 2: _t->SubmitButton(); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject LogHours::staticMetaObject = {
@@ -100,13 +109,13 @@ int LogHours::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 3)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        _id -= 3;
     }
     return _id;
 }

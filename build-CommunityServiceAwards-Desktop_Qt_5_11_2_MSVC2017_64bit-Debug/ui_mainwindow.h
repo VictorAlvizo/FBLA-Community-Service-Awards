@@ -28,16 +28,15 @@ public:
     QAction *actionMission;
     QAction *actionQT;
     QAction *actionDeveloper;
-    QAction *adminHelp;
-    QAction *memberHelp;
+    QAction *actionGithub;
     QWidget *centralWidget;
     QLabel *leydenText;
     QLabel *commLabel;
     QPushButton *adminButton;
     QPushButton *memberLogin;
+    QPushButton *helpButton;
     QMenuBar *menuBar;
     QMenu *menuAbout;
-    QMenu *menuHelp;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -51,10 +50,8 @@ public:
         actionQT->setObjectName(QStringLiteral("actionQT"));
         actionDeveloper = new QAction(MainWindow);
         actionDeveloper->setObjectName(QStringLiteral("actionDeveloper"));
-        adminHelp = new QAction(MainWindow);
-        adminHelp->setObjectName(QStringLiteral("adminHelp"));
-        memberHelp = new QAction(MainWindow);
-        memberHelp->setObjectName(QStringLiteral("memberHelp"));
+        actionGithub = new QAction(MainWindow);
+        actionGithub->setObjectName(QStringLiteral("actionGithub"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         leydenText = new QLabel(centralWidget);
@@ -82,28 +79,28 @@ public:
         adminButton->setFont(font2);
         memberLogin = new QPushButton(centralWidget);
         memberLogin->setObjectName(QStringLiteral("memberLogin"));
-        memberLogin->setGeometry(QRect(280, 350, 191, 51));
+        memberLogin->setGeometry(QRect(280, 310, 191, 51));
         memberLogin->setFont(font2);
+        helpButton = new QPushButton(centralWidget);
+        helpButton->setObjectName(QStringLiteral("helpButton"));
+        helpButton->setGeometry(QRect(280, 380, 191, 51));
+        helpButton->setFont(font2);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 750, 20));
         menuAbout = new QMenu(menuBar);
         menuAbout->setObjectName(QStringLiteral("menuAbout"));
-        menuHelp = new QMenu(menuBar);
-        menuHelp->setObjectName(QStringLiteral("menuHelp"));
         MainWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
 
         menuBar->addAction(menuAbout->menuAction());
-        menuBar->addAction(menuHelp->menuAction());
         menuAbout->addAction(actionMission);
         menuAbout->addAction(actionQT);
         menuAbout->addAction(actionDeveloper);
-        menuHelp->addAction(adminHelp);
-        menuHelp->addAction(memberHelp);
+        menuAbout->addAction(actionGithub);
 
         retranslateUi(MainWindow);
 
@@ -116,14 +113,13 @@ public:
         actionMission->setText(QApplication::translate("MainWindow", "Mission Statement", nullptr));
         actionQT->setText(QApplication::translate("MainWindow", "QT", nullptr));
         actionDeveloper->setText(QApplication::translate("MainWindow", "Developer", nullptr));
-        adminHelp->setText(QApplication::translate("MainWindow", "Admin Help", nullptr));
-        memberHelp->setText(QApplication::translate("MainWindow", "Member Help", nullptr));
+        actionGithub->setText(QApplication::translate("MainWindow", "Github", nullptr));
         leydenText->setText(QApplication::translate("MainWindow", "West Leyden ", nullptr));
         commLabel->setText(QApplication::translate("MainWindow", "Community Service Awards", nullptr));
         adminButton->setText(QApplication::translate("MainWindow", "Admin Login", nullptr));
         memberLogin->setText(QApplication::translate("MainWindow", "Member Login", nullptr));
+        helpButton->setText(QApplication::translate("MainWindow", "Help", nullptr));
         menuAbout->setTitle(QApplication::translate("MainWindow", "About", nullptr));
-        menuHelp->setTitle(QApplication::translate("MainWindow", "Help", nullptr));
     } // retranslateUi
 
 };

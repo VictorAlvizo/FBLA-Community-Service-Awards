@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MemberPanel_t {
     QByteArrayData data[8];
-    char stringdata0[81];
+    char stringdata0[84];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,12 +37,12 @@ QT_MOC_LITERAL(2, 25, 0), // ""
 QT_MOC_LITERAL(3, 26, 16), // "QListWidgetItem*"
 QT_MOC_LITERAL(4, 43, 4), // "item"
 QT_MOC_LITERAL(5, 48, 9), // "LogButton"
-QT_MOC_LITERAL(6, 58, 11), // "PrintButton"
-QT_MOC_LITERAL(7, 70, 10) // "ExitButton"
+QT_MOC_LITERAL(6, 58, 14), // "SettingsButton"
+QT_MOC_LITERAL(7, 73, 10) // "ExitButton"
 
     },
     "MemberPanel\0EventClicked\0\0QListWidgetItem*\0"
-    "item\0LogButton\0PrintButton\0ExitButton"
+    "item\0LogButton\0SettingsButton\0ExitButton"
 };
 #undef QT_MOC_LITERAL
 
@@ -82,7 +82,7 @@ void MemberPanel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         switch (_id) {
         case 0: _t->EventClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
         case 1: _t->LogButton(); break;
-        case 2: _t->PrintButton(); break;
+        case 2: _t->SettingsButton(); break;
         case 3: _t->ExitButton(); break;
         default: ;
         }

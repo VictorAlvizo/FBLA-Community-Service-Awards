@@ -244,6 +244,7 @@ Makefile: ..\CommunityServiceAwards\CommunityServiceAwards.pro ..\..\..\..\Qt\5.
 		..\CommunityServiceAwards\CommunityServiceAwards.pro \
 		..\..\..\..\Qt\5.11.2\msvc2017_64\lib\qtmaind.prl \
 		..\..\..\..\Qt\5.11.2\msvc2017_64\lib\Qt5PrintSupport.prl \
+		..\..\..\..\Qt\5.11.2\msvc2017_64\lib\Qt5Charts.prl \
 		..\..\..\..\Qt\5.11.2\msvc2017_64\lib\Qt5Widgets.prl \
 		..\..\..\..\Qt\5.11.2\msvc2017_64\lib\Qt5Gui.prl \
 		..\..\..\..\Qt\5.11.2\msvc2017_64\lib\Qt5Core.prl
@@ -417,6 +418,7 @@ Makefile: ..\CommunityServiceAwards\CommunityServiceAwards.pro ..\..\..\..\Qt\5.
 ..\CommunityServiceAwards\CommunityServiceAwards.pro:
 ..\..\..\..\Qt\5.11.2\msvc2017_64\lib\qtmaind.prl:
 ..\..\..\..\Qt\5.11.2\msvc2017_64\lib\Qt5PrintSupport.prl:
+..\..\..\..\Qt\5.11.2\msvc2017_64\lib\Qt5Charts.prl:
 ..\..\..\..\Qt\5.11.2\msvc2017_64\lib\Qt5Widgets.prl:
 ..\..\..\..\Qt\5.11.2\msvc2017_64\lib\Qt5Gui.prl:
 ..\..\..\..\Qt\5.11.2\msvc2017_64\lib\Qt5Core.prl:

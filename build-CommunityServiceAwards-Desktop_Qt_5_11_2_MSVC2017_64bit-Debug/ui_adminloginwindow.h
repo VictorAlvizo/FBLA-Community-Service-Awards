@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
@@ -33,6 +34,7 @@ public:
     QLineEdit *usernameLE;
     QLabel *usernameLabel;
     QLabel *logoLabel;
+    QCheckBox *passwordBox;
 
     void setupUi(QDialog *AdminLoginWindow)
     {
@@ -96,6 +98,9 @@ public:
         logoLabel = new QLabel(AdminLoginWindow);
         logoLabel->setObjectName(QStringLiteral("logoLabel"));
         logoLabel->setGeometry(QRect(410, 170, 281, 261));
+        passwordBox = new QCheckBox(AdminLoginWindow);
+        passwordBox->setObjectName(QStringLiteral("passwordBox"));
+        passwordBox->setGeometry(QRect(14, 263, 72, 19));
 
         retranslateUi(AdminLoginWindow);
 
@@ -111,6 +116,7 @@ public:
         passwordLabel->setText(QApplication::translate("AdminLoginWindow", "Password", nullptr));
         usernameLabel->setText(QApplication::translate("AdminLoginWindow", "Username", nullptr));
         logoLabel->setText(QString());
+        passwordBox->setText(QString());
     } // retranslateUi
 
 };

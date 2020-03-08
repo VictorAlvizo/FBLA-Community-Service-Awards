@@ -11,7 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
@@ -25,30 +24,30 @@ QT_BEGIN_NAMESPACE
 class Ui_EventEdit
 {
 public:
-    QWidget *widget;
+    QWidget *layoutWidget;
     QGridLayout *gridLayout;
     QLabel *hourLabel;
-    QLabel *nameLabel;
     QSpinBox *hourSpin;
+    QLabel *nameLabel;
+    QLineEdit *categoryInput;
     QLineEdit *nameInput;
     QLabel *categoryLabel;
     QLabel *dateLabel;
-    QLineEdit *categoryInput;
-    QDateEdit *dateEdit;
     QPushButton *submitButton;
+    QPushButton *dateButton;
 
     void setupUi(QDialog *EventEdit)
     {
         if (EventEdit->objectName().isEmpty())
             EventEdit->setObjectName(QStringLiteral("EventEdit"));
         EventEdit->resize(535, 373);
-        widget = new QWidget(EventEdit);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(20, 10, 491, 331));
-        gridLayout = new QGridLayout(widget);
+        layoutWidget = new QWidget(EventEdit);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(20, 10, 491, 331));
+        gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        hourLabel = new QLabel(widget);
+        hourLabel = new QLabel(layoutWidget);
         hourLabel->setObjectName(QStringLiteral("hourLabel"));
         QFont font;
         font.setFamily(QStringLiteral("Segoe UI Semibold"));
@@ -59,48 +58,48 @@ public:
 
         gridLayout->addWidget(hourLabel, 0, 0, 1, 1);
 
-        nameLabel = new QLabel(widget);
+        hourSpin = new QSpinBox(layoutWidget);
+        hourSpin->setObjectName(QStringLiteral("hourSpin"));
+
+        gridLayout->addWidget(hourSpin, 1, 0, 1, 1);
+
+        nameLabel = new QLabel(layoutWidget);
         nameLabel->setObjectName(QStringLiteral("nameLabel"));
         nameLabel->setFont(font);
 
         gridLayout->addWidget(nameLabel, 0, 1, 1, 1);
 
-        hourSpin = new QSpinBox(widget);
-        hourSpin->setObjectName(QStringLiteral("hourSpin"));
+        categoryInput = new QLineEdit(layoutWidget);
+        categoryInput->setObjectName(QStringLiteral("categoryInput"));
 
-        gridLayout->addWidget(hourSpin, 1, 0, 1, 1);
+        gridLayout->addWidget(categoryInput, 3, 0, 1, 1);
 
-        nameInput = new QLineEdit(widget);
+        nameInput = new QLineEdit(layoutWidget);
         nameInput->setObjectName(QStringLiteral("nameInput"));
 
         gridLayout->addWidget(nameInput, 1, 1, 1, 1);
 
-        categoryLabel = new QLabel(widget);
+        categoryLabel = new QLabel(layoutWidget);
         categoryLabel->setObjectName(QStringLiteral("categoryLabel"));
         categoryLabel->setFont(font);
 
         gridLayout->addWidget(categoryLabel, 2, 0, 1, 1);
 
-        dateLabel = new QLabel(widget);
+        dateLabel = new QLabel(layoutWidget);
         dateLabel->setObjectName(QStringLiteral("dateLabel"));
         dateLabel->setFont(font);
 
         gridLayout->addWidget(dateLabel, 2, 1, 1, 1);
 
-        categoryInput = new QLineEdit(widget);
-        categoryInput->setObjectName(QStringLiteral("categoryInput"));
-
-        gridLayout->addWidget(categoryInput, 3, 0, 1, 1);
-
-        dateEdit = new QDateEdit(widget);
-        dateEdit->setObjectName(QStringLiteral("dateEdit"));
-
-        gridLayout->addWidget(dateEdit, 3, 1, 1, 1);
-
-        submitButton = new QPushButton(widget);
+        submitButton = new QPushButton(layoutWidget);
         submitButton->setObjectName(QStringLiteral("submitButton"));
 
         gridLayout->addWidget(submitButton, 4, 0, 1, 1);
+
+        dateButton = new QPushButton(layoutWidget);
+        dateButton->setObjectName(QStringLiteral("dateButton"));
+
+        gridLayout->addWidget(dateButton, 3, 1, 1, 1);
 
 
         retranslateUi(EventEdit);
@@ -113,10 +112,11 @@ public:
         EventEdit->setWindowTitle(QApplication::translate("EventEdit", "Dialog", nullptr));
         hourLabel->setText(QApplication::translate("EventEdit", "Event Hour(s)", nullptr));
         nameLabel->setText(QApplication::translate("EventEdit", "Event Name", nullptr));
-        categoryLabel->setText(QApplication::translate("EventEdit", "Event Category", nullptr));
-        dateLabel->setText(QApplication::translate("EventEdit", "Event Date", nullptr));
         categoryInput->setText(QString());
+        categoryLabel->setText(QApplication::translate("EventEdit", "Event Category", nullptr));
+        dateLabel->setText(QApplication::translate("EventEdit", "Event Date: ", nullptr));
         submitButton->setText(QApplication::translate("EventEdit", "Save", nullptr));
+        dateButton->setText(QApplication::translate("EventEdit", "Change Date", nullptr));
     } // retranslateUi
 
 };

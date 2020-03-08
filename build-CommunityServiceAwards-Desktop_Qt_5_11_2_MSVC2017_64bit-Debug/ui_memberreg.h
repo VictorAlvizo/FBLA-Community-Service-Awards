@@ -43,7 +43,7 @@ public:
     {
         if (MemberReg->objectName().isEmpty())
             MemberReg->setObjectName(QStringLiteral("MemberReg"));
-        MemberReg->resize(500, 500);
+        MemberReg->resize(500, 397);
         layoutWidget = new QWidget(MemberReg);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
         layoutWidget->setGeometry(QRect(40, 20, 431, 401));
