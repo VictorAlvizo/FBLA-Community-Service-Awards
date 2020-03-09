@@ -88,7 +88,13 @@ void memberEdit::SubmitButton(){
 
 void memberEdit::RemoveButton(){
     m_Members.remove(m_MemberIndex);
+    int IDNumber = 1000; //To reset IDs
 
+    //Give reference to actually edit it as well
+    for(Member &member : m_Members){
+        member.m_ID = IDNumber++;
+    }
+    
     SaveInformation();
     QMessageBox::information(this, "Member Removed", "Member's information has been removed");
 
