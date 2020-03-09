@@ -80,22 +80,11 @@ void Report::YearInfo(int year){
                 yearInfo[fullName] += event.m_Hours;
                 currentHour += event.m_Hours;
                 yearHours += event.m_Hours;
-
-                //For information label to show what member has the highest/lowest hours for that year
-                if(currentHour > highestHour){
-                    highestHour = currentHour;
-                    highestName = member.m_FirstName + " " + member.m_LastName;
-                }
-
-                if(currentHour < lowestHour){
-                    lowestHour = currentHour;
-                    lowestName = member.m_FirstName + " " + member.m_LastName;
-                }
             }
         }
 
         //For information label to show what member has the highest/lowest hours for that year
-        if(currentHour > highestHour && currentHour != -1){
+        if(currentHour > highestHour && currentHour != -1){ //-1 is needed to identify if the member had any events that year
             highestHour = currentHour;
             highestName = member.m_FirstName + " " + member.m_LastName;
         }
