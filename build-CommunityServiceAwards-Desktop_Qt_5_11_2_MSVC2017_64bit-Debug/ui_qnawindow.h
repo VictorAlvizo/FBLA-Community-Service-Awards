@@ -181,6 +181,16 @@ public:
         QListWidgetItem *___qlistwidgetitem17 = helpList->item(23);
         ___qlistwidgetitem17->setText(QApplication::translate("QnAWindow", "A: In the admin panel, click on \"Export Data\" and choose a save location", nullptr));
         helpList->setSortingEnabled(__sortingEnabled);
+        ___qlistwidgetitem18->setText(QApplication::translate("QnAWindow", "Q: How to backup my data?", nullptr));
+        QListWidgetItem *___qlistwidgetitem19 = helpList->item(26);
+        ___qlistwidgetitem19->setText(QApplication::translate("QnAWindow", "A: In the admin panel, click on \"Backup Data\"", nullptr));
+        QListWidgetItem *___qlistwidgetitem20 = helpList->item(28);
+        ___qlistwidgetitem20->setText(QApplication::translate("QnAWindow", "Q: Will retriving my backup data keep the new additions?", nullptr));
+        QListWidgetItem *___qlistwidgetitem21 = helpList->item(29);
+        ___qlistwidgetitem21->setText(QApplication::translate("QnAWindow", "A: No, retriving your backed up data will restore", nullptr));
+        QListWidgetItem *___qlistwidgetitem22 = helpList->item(30);
+        ___qlistwidgetitem22->setText(QApplication::translate("QnAWindow", "    to its original backup state", nullptr));
+        helpList->setSortingEnabled(__sortingEnabled);
 
         searchLabel->setText(QApplication::translate("QnAWindow", "Search:", nullptr));
         backButton->setText(QApplication::translate("QnAWindow", "Back", nullptr));
