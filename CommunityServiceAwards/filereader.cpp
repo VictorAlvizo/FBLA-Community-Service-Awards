@@ -39,7 +39,6 @@ QVector<Member> FileReader::ReadMembers(QString filePath){
 
 bool FileReader::WriteMembers(QVector<Member> members, QString filePath){
     QFile writeMembers(filePath);
-    int IDNumber = 1000;
 
     if(!writeMembers.open(QIODevice::WriteOnly | QIODevice::Text)){
         writeMembers.close();
@@ -62,7 +61,6 @@ bool FileReader::WriteMembers(QVector<Member> members, QString filePath){
         }
 
         out << "\n~"; //~ works to indicate the end of a membe's information block
-        IDNumber++;
     }
 
     writeMembers.close();
