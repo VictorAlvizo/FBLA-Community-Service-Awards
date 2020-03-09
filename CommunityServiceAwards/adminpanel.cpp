@@ -77,12 +77,16 @@ void AdminPanel::UpdateList(){
 }
 
 void AdminPanel::LogoutButton(){
+    ui->searchBox->releaseKeyboard(); //Release from keyboard grab so other widgets can use the keyboard
+    
     this->close();
     MainWindow * homeWindow = new MainWindow();
     homeWindow->show();
 }
 
 void AdminPanel::RegisterButton(){
+    ui->searchBox->releaseKeyboard();
+    
     MemberReg * regWindow = new MemberReg();
     regWindow->GiveMembers(*m_Members);
     regWindow->exec();
@@ -93,6 +97,8 @@ void AdminPanel::RegisterButton(){
 }
 
 void AdminPanel::EventButton(){
+    ui->searchBox->releaseKeyboard();
+    
     if(memberIndex == -1){
         QMessageBox::warning(this, "Need Member", "A member must be selected to view events");
         return;
@@ -108,6 +114,8 @@ void AdminPanel::EventButton(){
 }
 
 void AdminPanel::EditButton(){
+    ui->searchBox->releaseKeyboard();
+    
     if(memberIndex == -1){
         QMessageBox::warning(this, "Need Member", "A member must be selected to edit their information");
         return;
