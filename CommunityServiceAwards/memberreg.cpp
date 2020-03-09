@@ -37,7 +37,7 @@ void MemberReg::SubmitButton(){
     QString username = ui->userInput->text();
     QString password = ui->passwordInput->text();
     QString grade = ui->gradeDropDown->currentText();
-    int idNumber = ++m_MemberList[m_MemberList.size() - 1].m_ID; //Get the last persons ID and increase +1
+    int idNumber = 1000 + m_MemberList.size(); //Size + 1000 will give correct ID
 
     if(isValidInput(firstName, lastName, username, password)){
         if(!QDir("info/").exists()){
