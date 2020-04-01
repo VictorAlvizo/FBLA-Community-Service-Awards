@@ -145,20 +145,33 @@ void AdminPanel::SearchMember(QString text){
         return;
     }
 
-    QString fullName = "";
+    QRegExp onlyNums("\\d*");
+    if(onlyNums.exactMatch(text) && text.toInt() >= 1000){ //If search text only contains numbers look for ID match
+        //Works like magic! Example: 5498 modifer = 5000, do 5498 - 5000 = 498 now + 4000 = 4498. Works at N(1)
+        int fullNumber = text.toInt();
+        int modifer = text.remove(1, text.length()).toInt() * 1000;
+        int index = (fullNumber - modifer) + (modifer - 1000);
 
-    for(Member member : *m_Members){
-        fullName = member.m_FirstName + " " + member.m_LastName;
-
-        if(fullName.toUpper().contains(text.toUpper())){ //If it contains text (non-case sensitive) add it to the new specfic list
-            ui->studentDropDown->addItem(fullName, QVariant(member.m_Username));
+        if(index < m_Members->size()){ //Want to avoid an out of index exception if wanted ID goes beyond avaliable
+            QString fullName = m_Members->at(index).m_FirstName + " " + m_Members->at(index).m_LastName;
+            ui->studentDropDown->addItem(fullName, QVariant(m_Members->at(index).m_Username));
         }
-    }
-
-    if(ui->studentDropDown->count() != 0){ //Dropdown is not empty
-        ui->studentDropDown->showPopup();
     }else{
-        ui->studentDropDown->hidePopup();
+        QString fullName = "";
+
+        for(Member member : *m_Members){
+            fullName = member.m_FirstName + " " + member.m_LastName;
+
+            if(fullName.contains(text, Qt::CaseInsensitive)){ //Add it to valid list
+                ui->studentDropDown->addItem(fullName, QVariant(member.m_Username));
+            }
+        }
+
+        if(ui->studentDropDown->count() != 0){ //Dropdown is not empty
+            ui->studentDropDown->showPopup();
+        }else{
+            ui->studentDropDown->hidePopup();
+        }
     }
 
     ui->searchBox->grabKeyboard(); //Give the searchbox the keyboard focus back
