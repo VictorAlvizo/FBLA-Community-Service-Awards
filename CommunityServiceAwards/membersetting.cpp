@@ -25,6 +25,7 @@ void MemberSetting::RecieveInformation(int memberIndex){
     this->setWindowTitle(m_Members[m_MemberIndex].m_FirstName + "'s Settings");
 
     //Fill in all the information labels
+    ui->titleLabel->setText(m_Members[m_MemberIndex].m_FirstName + "'s" + " Settings");
     ui->nameLabel->setText("Name: " + m_Members[m_MemberIndex].m_FirstName + " " + m_Members[m_MemberIndex].m_LastName);
     ui->idLabel->setText("ID: " + QString::number(m_Members[m_MemberIndex].m_ID));
     ui->usernameLabel->setText("Username: " + m_Members[m_MemberIndex].m_Username);
