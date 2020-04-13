@@ -10,3 +10,5 @@ Link to download program: https://www.mediafire.com/file/4ra14lutrto3pma/CSA_Wes
 3.Read the "README.txt" file
 
 4.Click on CommunityServiceAwards.exe
+
+![West Leyden Community Service Awards](CommunityServiceAwards/images/Logo.png)
