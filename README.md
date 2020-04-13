@@ -1,4 +1,12 @@
 # FBLA-Community-Service-Awards
-Program for the FBLA Coding &amp; Programming event. This program is a Community Service made using Qt and C++
+Program for the FBLA Coding & Programming event for West Leyden. This program is a Community Service made using Qt and C++ 
 
-Link to download program: https://www.mediafire.com/file/db1n965md7xd9q1/FBLA_CS.zip/file
+Link to download program: https://www.mediafire.com/file/4ra14lutrto3pma/CSA_West_Leyden.zip/file
+# Installation Guide
+1.Once on the mediafire website, click on the green "Download (22 MB)" Button
+
+2.Extract the file
+
+3.Read the "README.txt" file
+
+4.Click on CommunityServiceAwards.exe
