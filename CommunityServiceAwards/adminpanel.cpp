@@ -240,15 +240,16 @@ void AdminPanel::RetriveButton(){
         return;
     }
 
-    m_Members->clear();
-    *m_Members = FileReader::ReadMembers("info/BackupFile.txt");
-
-    if(m_Members->isEmpty()){
-        QMessageBox::critical(this, "Error Reading File", "An error occured reading backup, backup may not exist");
-    }else
-    {
-        QMessageBox::information(this, "Backup Restored", "Backup information has been restored");
+   QVector<Member> testMem = FileReader::ReadMembers("info/BackupFile.txt"); //Check if backup is empyy
+    if(testMem.isEmpty()){
+        QMessageBox::critical(this, "Error Reading File", "An error occured reading backup, backup may not exist or it's empty");
+        return;
     }
+
+    m_Members->clear();
+    *m_Members = testMem;
+
+    QMessageBox::information(this, "Backup Restored", "Backup information has been restored");
 
     //Now update non-backup file with retrived information
     if(!FileReader::WriteMembers(*m_Members, "info/memberList.txt")){
