@@ -10,18 +10,6 @@ John Doe johnDOE jane123 Senior 1001
 * 2 Church Culture 11/30/2019
 * 7 Cleaning Enviorment 02/02/2019
 ~
-Vincet Jones vinzy4
-Victor Alvizo va25558 dragon123 Junior 1000
-* 2 Guitar_Club Music 12/26/2020
-* 18 Dinner Eating 08/13/2020
-* 3 FMSC International_Aid 08/04/2020
-* 4 FBLA Art 10/10/2019
-* 6 Nursing_Home Community 07/31/2019
-~
-John Doe johnDOE jane123 Senior 1001
-* 2 Church Culture 11/30/2019
-* 7 Cleaning Enviorment 02/02/2019
-~
 Vincet Jones vinzy45 flavorDanger Sophomore 1002
 * 2 Marshal Protection 10/20/2020
 * 1 Charity Charity 09/28/2019
