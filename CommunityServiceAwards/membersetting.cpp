@@ -8,6 +8,7 @@ MemberSetting::MemberSetting(QWidget *parent) :
     ui->setupUi(this);
 
     this->setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
+    this->setFixedSize(QSize(415, 468));
 
     connect(ui->passwordButton, SIGNAL(released()), this, SLOT(PasswordButton()));
 }
@@ -40,6 +41,9 @@ void MemberSetting::RecieveInformation(int memberIndex){
     }
 
     ui->hourLabel->setText("Total Hour(s): " + QString::number(totalHours));
+
+    QString award = totalHours >= 15 ? "Yes" : "No";
+    ui->awardGained->setText("CSA Award: " + award);
 }
 
 void MemberSetting::PasswordButton(){

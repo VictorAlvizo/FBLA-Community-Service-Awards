@@ -1,6 +1,7 @@
 #include "adminpanel.h"
 #include "ui_adminpanel.h"
 #include "mainwindow.h"
+#include <QDebug>
 
 AdminPanel::AdminPanel(QWidget *parent) :
     QDialog(parent),
@@ -65,20 +66,34 @@ void AdminPanel::UpdateList(){
     ui->gradeOutput->setText("");
     ui->hoursOutput->setText("");
     ui->idOutput->setText("");
+    ui->awardGained->setText("");
     ui->studentDropDown->clear();
     ui->searchBox->clear();
 
     memberIndex = -1; //Reset anytime drop down is updated
+    int totalHours = 0;
+    QIcon icon(":/images/images/Logo.png");
 
     for(Member member : *m_Members){
         QString fullName = member.m_FirstName + " " + member.m_LastName;
-        ui->studentDropDown->addItem(fullName, QVariant(member.m_Username)); //Add text but also data, used to identify
+
+        for(Event event : member.m_Events){
+            totalHours += event.m_Hours;
+        }
+
+        if(totalHours >= 15){ //Met CSA awards hours, grant icon
+            ui->studentDropDown->addItem(icon, fullName, QVariant(member.m_Username)); //Add text but also data, used to identify member clicked
+        }else{
+            ui->studentDropDown->addItem(fullName, QVariant(member.m_Username));
+        }
+
+        totalHours = 0;
     }
 }
 
 void AdminPanel::LogoutButton(){
-    ui->searchBox->releaseKeyboard(); //Release from keyboard grab so other widgets can use the keyboard
-    
+    ui->searchBox->releaseKeyboard(); //Release from grab
+
     this->close();
     MainWindow * homeWindow = new MainWindow();
     homeWindow->show();
@@ -86,7 +101,7 @@ void AdminPanel::LogoutButton(){
 
 void AdminPanel::RegisterButton(){
     ui->searchBox->releaseKeyboard();
-    
+
     MemberReg * regWindow = new MemberReg();
     regWindow->GiveMembers(*m_Members);
     regWindow->exec();
@@ -98,7 +113,7 @@ void AdminPanel::RegisterButton(){
 
 void AdminPanel::EventButton(){
     ui->searchBox->releaseKeyboard();
-    
+
     if(memberIndex == -1){
         QMessageBox::warning(this, "Need Member", "A member must be selected to view events");
         return;
@@ -115,7 +130,7 @@ void AdminPanel::EventButton(){
 
 void AdminPanel::EditButton(){
     ui->searchBox->releaseKeyboard();
-    
+
     if(memberIndex == -1){
         QMessageBox::warning(this, "Need Member", "A member must be selected to edit their information");
         return;
@@ -136,9 +151,12 @@ void AdminPanel::SearchMember(QString text){
     ui->gradeOutput->setText("");
     ui->hoursOutput->setText("");
     ui->idOutput->setText("");
+    ui->awardGained->setText("");
     ui->studentDropDown->clear();
 
     memberIndex = -1; //Reset after the drop down is updated
+    int totalHours = 0;
+    QIcon icon(":/images/images/Logo.png");
 
     if(text.isEmpty()){ //Search is empty put in everyone
         UpdateList();
@@ -149,12 +167,21 @@ void AdminPanel::SearchMember(QString text){
     if(onlyNums.exactMatch(text) && text.toInt() >= 1000){ //If search text only contains numbers look for ID match
         //Works like magic! Example: 5498 modifer = 5000, do 5498 - 5000 = 498 now + 4000 = 4498. Works at N(1)
         int fullNumber = text.toInt();
-        int modifer = text.remove(1, text.length()).toInt() * 1000;
+        int modifer = text.remove(1, text.length()).toInt() * 1000; //Get only the first int, example: 2930 -> 2 then * 1000
         int index = (fullNumber - modifer) + (modifer - 1000);
 
         if(index < m_Members->size()){ //Want to avoid an out of index exception if wanted ID goes beyond avaliable
             QString fullName = m_Members->at(index).m_FirstName + " " + m_Members->at(index).m_LastName;
-            ui->studentDropDown->addItem(fullName, QVariant(m_Members->at(index).m_Username));
+
+            for(Event event : m_Members->at(index).m_Events){
+                totalHours += event.m_Hours;
+            }
+
+            if(totalHours >= 15){
+                ui->studentDropDown->addItem(icon, fullName, QVariant(m_Members->at(index).m_Username));
+            }else{
+                ui->studentDropDown->addItem(fullName, QVariant(m_Members->at(index).m_Username));
+            }
         }
     }else{
         QString fullName = "";
@@ -163,7 +190,17 @@ void AdminPanel::SearchMember(QString text){
             fullName = member.m_FirstName + " " + member.m_LastName;
 
             if(fullName.contains(text, Qt::CaseInsensitive)){ //Add it to valid list
-                ui->studentDropDown->addItem(fullName, QVariant(member.m_Username));
+                for(Event event : member.m_Events){
+                    totalHours += event.m_Hours;
+                }
+
+                if(totalHours >= 15){
+                     ui->studentDropDown->addItem(icon, fullName, QVariant(member.m_Username));
+                }else{
+                     ui->studentDropDown->addItem(fullName, QVariant(member.m_Username));
+                }
+
+                totalHours = 0;
             }
         }
 
@@ -202,6 +239,7 @@ void AdminPanel::ItemClicked(int slotIndex){
     }
 
     ui->hoursOutput->setText(QString::number(hours));
+    ui->awardGained->setText(hours >= 15 ? "Yes" : "No");
 }
 
 void AdminPanel::ReportButton(){
@@ -240,7 +278,7 @@ void AdminPanel::RetriveButton(){
         return;
     }
 
-   QVector<Member> testMem = FileReader::ReadMembers("info/BackupFile.txt"); //Check if backup is empyy
+    QVector<Member> testMem = FileReader::ReadMembers("info/BackupFile.txt"); //Check if backup is empyy
     if(testMem.isEmpty()){
         QMessageBox::critical(this, "Error Reading File", "An error occured reading backup, backup may not exist or it's empty");
         return;
@@ -271,16 +309,25 @@ void AdminPanel::ExportButton(){
     }
 
     QTextStream out(&writeCSV);
+    int totalHours = 0;
 
-    out << "Name,Username,Password,Grade,ID Number,,Event Name,Category,Date,Hour(s)"; //Write table header
+    out << "Name,Username,Password,Grade,ID Number,CSA Award,Event Name,Category,Date,Hour(s)"; //Write table header
 
     //Loop through all events and members, write their information
     for(Member member : *m_Members){
         out << "\n" << member.m_FirstName + " " + member.m_LastName << ","
             << member.m_Username << "," << member.m_Password << "," << member.m_Grade
-            << "," << member.m_ID << ",,";
+            << "," << member.m_ID << ",";
 
-        for(Event event : member.m_Events){
+        for(Event event : member.m_Events){ //Loop for CSA awards
+            totalHours += event.m_Hours;
+        }
+
+        QString award = (totalHours >= 15) ? "Yes" : "No";
+        totalHours = 0;
+        out << award << ",";
+
+        for(Event event : member.m_Events){ //Loop for events
             out << event.m_EventName << "," << event.m_Category << ","
                 << event.m_Date << "," << QString::number(event.m_Hours);
 
@@ -293,6 +340,8 @@ void AdminPanel::ExportButton(){
 }
 
 void AdminPanel::SettingButton(){
+    ui->searchBox->releaseKeyboard();
+
     AdminSetting * settingsWindow = new AdminSetting();
     settingsWindow->exec();
 }

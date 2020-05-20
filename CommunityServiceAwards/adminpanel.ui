@@ -39,15 +39,27 @@
     <property name="spacing">
      <number>2</number>
     </property>
-    <item row="3" column="0" colspan="2">
-     <widget class="QLabel" name="passwordLabel">
+    <item row="2" column="0" colspan="2">
+     <widget class="QLabel" name="userLabel">
       <property name="font">
        <font>
         <pointsize>20</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>Password: </string>
+       <string>Username: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" colspan="2">
+     <widget class="QLabel" name="nameOutput">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
@@ -63,32 +75,15 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="2">
-     <widget class="QLabel" name="gradeOutput">
+    <item row="3" column="0" colspan="2">
+     <widget class="QLabel" name="passwordLabel">
       <property name="font">
        <font>
         <pointsize>20</pointsize>
        </font>
       </property>
       <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLineEdit" name="searchBox"/>
-    </item>
-    <item row="6" column="1">
-     <widget class="QPushButton" name="eventButton">
-      <property name="font">
-       <font>
-        <family>Segoe UI Semibold</family>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>View Events</string>
+       <string>Password: </string>
       </property>
      </widget>
     </item>
@@ -116,6 +111,18 @@
       </property>
      </widget>
     </item>
+    <item row="4" column="2">
+     <widget class="QLabel" name="gradeOutput">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
     <item row="3" column="2">
      <widget class="QLabel" name="passwordOutput">
       <property name="font">
@@ -128,7 +135,10 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="2">
+    <item row="7" column="0">
+     <widget class="QLineEdit" name="searchBox"/>
+    </item>
+    <item row="7" column="2">
      <widget class="QPushButton" name="editButton">
       <property name="font">
        <font>
@@ -139,6 +149,32 @@
       </property>
       <property name="text">
        <string>Edit</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="idOutput">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QPushButton" name="eventButton">
+      <property name="font">
+       <font>
+        <family>Segoe UI Semibold</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>View Events</string>
       </property>
      </widget>
     </item>
@@ -154,18 +190,6 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="0" colspan="2">
-     <widget class="QLabel" name="userLabel">
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Username: </string>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="0">
      <widget class="QLabel" name="nameLabel">
       <property name="font">
@@ -175,18 +199,6 @@
       </property>
       <property name="text">
        <string>Name: </string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1" colspan="2">
-     <widget class="QLabel" name="nameOutput">
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string/>
       </property>
      </widget>
     </item>
@@ -202,8 +214,20 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="2">
-     <widget class="QLabel" name="idOutput">
+    <item row="6" column="0" colspan="2">
+     <widget class="QLabel" name="csaAwardLabel">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>CSA Award:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
+     <widget class="QLabel" name="awardGained">
       <property name="font">
        <font>
         <pointsize>20</pointsize>

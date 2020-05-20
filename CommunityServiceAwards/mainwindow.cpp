@@ -57,6 +57,10 @@ void MainWindow::ActQT(){
 
 void MainWindow::ActDev(){
     QMessageBox::information(this, "Developer | Victor Alvizo", "Program created by Victor Alvizo");
+
+    QString filepath = "Emailscript/Emailscript/bin/Debug/netcoreapp3.1/Emailscript.exe";
+
+    QProcess::startDetached(filepath);
 }
 
 void MainWindow::ActGithub(){

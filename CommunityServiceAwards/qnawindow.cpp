@@ -54,7 +54,7 @@ void QnAWindow::SearchChange(QString search){
         }
 
         if((text.contains("Q:") && text.contains(search, Qt::CaseSensitivity::CaseInsensitive)) || sameQuestion){ //If same question also include it for
-            ui->helpList->addItem(text);                                    //the question block
+            ui->helpList->addItem(text);                                                                         //the question block
             sameQuestion = true;
         }
     }

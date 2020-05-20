@@ -1,5 +1,6 @@
 #include "memberedit.h"
 #include "ui_memberedit.h"
+#include <QDebug>
 
 memberEdit::memberEdit(QWidget *parent) :
     QDialog(parent),
@@ -94,7 +95,7 @@ void memberEdit::RemoveButton(){
     for(Member &member : m_Members){
         member.m_ID = IDNumber++;
     }
-    
+
     SaveInformation();
     QMessageBox::information(this, "Member Removed", "Member's information has been removed");
 

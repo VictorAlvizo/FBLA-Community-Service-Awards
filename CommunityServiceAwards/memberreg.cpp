@@ -1,6 +1,5 @@
 #include "memberreg.h"
 #include "ui_memberreg.h"
-#include <QDebug>
 
 MemberReg::MemberReg(QWidget *parent) :
     QDialog(parent),
@@ -43,7 +42,7 @@ void MemberReg::SubmitButton(){
         if(!QDir("info/").exists()){
             QDir().mkdir("info/");
         }
-        
+
         //Put inside lists to avoid having the same username and for giving a valid ID with the new size
         m_MemberList.push_back({firstName, lastName, username, password, grade, idNumber, QVector<Event>()});
 

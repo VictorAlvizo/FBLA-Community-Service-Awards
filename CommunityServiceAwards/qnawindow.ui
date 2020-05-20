@@ -17,9 +17,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>20</y>
-     <width>291</width>
-     <height>31</height>
+     <y>10</y>
+     <width>381</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -254,6 +254,56 @@
    <item>
     <property name="text">
      <string>A: In the admin panel, click on &quot;Export Data&quot; and choose a save location</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string/>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Q: How to backup my data?</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>A: In the admin panel, click on &quot;Backup Data&quot;</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string/>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Q: Will retriving my backup data keep the new additions?</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>A: No, retriving your backed up data will restore</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>    to its original backup state</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string/>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Q: How many hours for the CSA Award?</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>A: A minum of 15 hours is required</string>
     </property>
    </item>
   </widget>
