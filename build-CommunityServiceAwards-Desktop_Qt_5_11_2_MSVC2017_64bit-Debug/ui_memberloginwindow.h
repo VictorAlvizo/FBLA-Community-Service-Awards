@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'memberloginwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.11.2
+** Created by: Qt User Interface Compiler version 5.14.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -39,23 +39,23 @@ public:
     void setupUi(QDialog *MemberLoginWindow)
     {
         if (MemberLoginWindow->objectName().isEmpty())
-            MemberLoginWindow->setObjectName(QStringLiteral("MemberLoginWindow"));
+            MemberLoginWindow->setObjectName(QString::fromUtf8("MemberLoginWindow"));
         MemberLoginWindow->resize(750, 500);
         memberLabel = new QLabel(MemberLoginWindow);
-        memberLabel->setObjectName(QStringLiteral("memberLabel"));
-        memberLabel->setGeometry(QRect(40, 60, 301, 81));
+        memberLabel->setObjectName(QString::fromUtf8("memberLabel"));
+        memberLabel->setGeometry(QRect(40, 60, 441, 81));
         QFont font;
-        font.setFamily(QStringLiteral("Kenyan Coffee"));
+        font.setFamily(QString::fromUtf8("Kenyan Coffee"));
         font.setPointSize(50);
         memberLabel->setFont(font);
         layoutWidget = new QWidget(MemberLoginWindow);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(40, 180, 331, 261));
         gridLayout = new QGridLayout(layoutWidget);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
         loginButton = new QPushButton(layoutWidget);
-        loginButton->setObjectName(QStringLiteral("loginButton"));
+        loginButton->setObjectName(QString::fromUtf8("loginButton"));
         QFont font1;
         font1.setPointSize(10);
         loginButton->setFont(font1);
@@ -63,13 +63,13 @@ public:
         gridLayout->addWidget(loginButton, 2, 0, 1, 2);
 
         backButton = new QPushButton(layoutWidget);
-        backButton->setObjectName(QStringLiteral("backButton"));
+        backButton->setObjectName(QString::fromUtf8("backButton"));
         backButton->setFont(font1);
 
         gridLayout->addWidget(backButton, 3, 0, 1, 2);
 
         passwordLE = new QLineEdit(layoutWidget);
-        passwordLE->setObjectName(QStringLiteral("passwordLE"));
+        passwordLE->setObjectName(QString::fromUtf8("passwordLE"));
         QFont font2;
         font2.setPointSize(12);
         passwordLE->setFont(font2);
@@ -77,28 +77,28 @@ public:
         gridLayout->addWidget(passwordLE, 1, 1, 1, 1);
 
         passwordLabel = new QLabel(layoutWidget);
-        passwordLabel->setObjectName(QStringLiteral("passwordLabel"));
+        passwordLabel->setObjectName(QString::fromUtf8("passwordLabel"));
         passwordLabel->setFont(font2);
 
         gridLayout->addWidget(passwordLabel, 1, 0, 1, 1);
 
         usernameLE = new QLineEdit(layoutWidget);
-        usernameLE->setObjectName(QStringLiteral("usernameLE"));
+        usernameLE->setObjectName(QString::fromUtf8("usernameLE"));
         usernameLE->setFont(font2);
 
         gridLayout->addWidget(usernameLE, 0, 1, 1, 1);
 
         usernameLabel = new QLabel(layoutWidget);
-        usernameLabel->setObjectName(QStringLiteral("usernameLabel"));
+        usernameLabel->setObjectName(QString::fromUtf8("usernameLabel"));
         usernameLabel->setFont(font2);
 
         gridLayout->addWidget(usernameLabel, 0, 0, 1, 1);
 
         logoLabel = new QLabel(MemberLoginWindow);
-        logoLabel->setObjectName(QStringLiteral("logoLabel"));
+        logoLabel->setObjectName(QString::fromUtf8("logoLabel"));
         logoLabel->setGeometry(QRect(410, 170, 281, 261));
         passwordBox = new QCheckBox(MemberLoginWindow);
-        passwordBox->setObjectName(QStringLiteral("passwordBox"));
+        passwordBox->setObjectName(QString::fromUtf8("passwordBox"));
         passwordBox->setGeometry(QRect(15, 273, 72, 19));
 
         retranslateUi(MemberLoginWindow);
@@ -108,12 +108,12 @@ public:
 
     void retranslateUi(QDialog *MemberLoginWindow)
     {
-        MemberLoginWindow->setWindowTitle(QApplication::translate("MemberLoginWindow", "Dialog", nullptr));
-        memberLabel->setText(QApplication::translate("MemberLoginWindow", "Member Login", nullptr));
-        loginButton->setText(QApplication::translate("MemberLoginWindow", "Login", nullptr));
-        backButton->setText(QApplication::translate("MemberLoginWindow", "Back", nullptr));
-        passwordLabel->setText(QApplication::translate("MemberLoginWindow", "Password", nullptr));
-        usernameLabel->setText(QApplication::translate("MemberLoginWindow", "Username", nullptr));
+        MemberLoginWindow->setWindowTitle(QCoreApplication::translate("MemberLoginWindow", "Dialog", nullptr));
+        memberLabel->setText(QCoreApplication::translate("MemberLoginWindow", "Member Login", nullptr));
+        loginButton->setText(QCoreApplication::translate("MemberLoginWindow", "Login", nullptr));
+        backButton->setText(QCoreApplication::translate("MemberLoginWindow", "Back", nullptr));
+        passwordLabel->setText(QCoreApplication::translate("MemberLoginWindow", "Password", nullptr));
+        usernameLabel->setText(QCoreApplication::translate("MemberLoginWindow", "Username", nullptr));
         logoLabel->setText(QString());
         passwordBox->setText(QString());
     } // retranslateUi

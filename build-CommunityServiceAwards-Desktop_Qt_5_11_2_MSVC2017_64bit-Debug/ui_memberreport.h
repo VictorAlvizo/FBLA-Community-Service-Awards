@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'memberreport.ui'
 **
-** Created by: Qt User Interface Compiler version 5.11.2
+** Created by: Qt User Interface Compiler version 5.14.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -38,20 +38,20 @@ public:
     void setupUi(QDialog *MemberReport)
     {
         if (MemberReport->objectName().isEmpty())
-            MemberReport->setObjectName(QStringLiteral("MemberReport"));
+            MemberReport->setObjectName(QString::fromUtf8("MemberReport"));
         MemberReport->resize(780, 586);
         gridLayout = new QGridLayout(MemberReport);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         StackGrid = new QVBoxLayout();
-        StackGrid->setObjectName(QStringLiteral("StackGrid"));
+        StackGrid->setObjectName(QString::fromUtf8("StackGrid"));
         chartWidget = new QVBoxLayout();
-        chartWidget->setObjectName(QStringLiteral("chartWidget"));
+        chartWidget->setObjectName(QString::fromUtf8("chartWidget"));
         chartWidget->setSizeConstraint(QLayout::SetDefaultConstraint);
 
         StackGrid->addLayout(chartWidget);
 
         yearDropDown = new QComboBox(MemberReport);
-        yearDropDown->setObjectName(QStringLiteral("yearDropDown"));
+        yearDropDown->setObjectName(QString::fromUtf8("yearDropDown"));
 
         StackGrid->addWidget(yearDropDown);
 
@@ -59,42 +59,42 @@ public:
         gridLayout->addLayout(StackGrid, 0, 0, 1, 2);
 
         pieWidget = new QVBoxLayout();
-        pieWidget->setObjectName(QStringLiteral("pieWidget"));
+        pieWidget->setObjectName(QString::fromUtf8("pieWidget"));
         pieWidget->setSizeConstraint(QLayout::SetDefaultConstraint);
 
         gridLayout->addLayout(pieWidget, 1, 0, 1, 1);
 
         infoLbaels = new QVBoxLayout();
-        infoLbaels->setObjectName(QStringLiteral("infoLbaels"));
+        infoLbaels->setObjectName(QString::fromUtf8("infoLbaels"));
         totEventLabel = new QLabel(MemberReport);
-        totEventLabel->setObjectName(QStringLiteral("totEventLabel"));
+        totEventLabel->setObjectName(QString::fromUtf8("totEventLabel"));
         QFont font;
-        font.setFamily(QStringLiteral("Bebas Neue"));
+        font.setFamily(QString::fromUtf8("Bebas Neue"));
         font.setPointSize(20);
         totEventLabel->setFont(font);
 
         infoLbaels->addWidget(totEventLabel);
 
         totHoursLabel = new QLabel(MemberReport);
-        totHoursLabel->setObjectName(QStringLiteral("totHoursLabel"));
+        totHoursLabel->setObjectName(QString::fromUtf8("totHoursLabel"));
         totHoursLabel->setFont(font);
 
         infoLbaels->addWidget(totHoursLabel);
 
         eventYearLabel = new QLabel(MemberReport);
-        eventYearLabel->setObjectName(QStringLiteral("eventYearLabel"));
+        eventYearLabel->setObjectName(QString::fromUtf8("eventYearLabel"));
         eventYearLabel->setFont(font);
 
         infoLbaels->addWidget(eventYearLabel);
 
         eventYearHour = new QLabel(MemberReport);
-        eventYearHour->setObjectName(QStringLiteral("eventYearHour"));
+        eventYearHour->setObjectName(QString::fromUtf8("eventYearHour"));
         eventYearHour->setFont(font);
 
         infoLbaels->addWidget(eventYearHour);
 
         themeCheck = new QCheckBox(MemberReport);
-        themeCheck->setObjectName(QStringLiteral("themeCheck"));
+        themeCheck->setObjectName(QString::fromUtf8("themeCheck"));
 
         infoLbaels->addWidget(themeCheck);
 
@@ -109,12 +109,12 @@ public:
 
     void retranslateUi(QDialog *MemberReport)
     {
-        MemberReport->setWindowTitle(QApplication::translate("MemberReport", "Dialog", nullptr));
-        totEventLabel->setText(QApplication::translate("MemberReport", "Total Events:", nullptr));
-        totHoursLabel->setText(QApplication::translate("MemberReport", "Total Hours: ", nullptr));
-        eventYearLabel->setText(QApplication::translate("MemberReport", "Events in year: ", nullptr));
-        eventYearHour->setText(QApplication::translate("MemberReport", "Hour(s) in Year: ", nullptr));
-        themeCheck->setText(QApplication::translate("MemberReport", "Dark Mode", nullptr));
+        MemberReport->setWindowTitle(QCoreApplication::translate("MemberReport", "Dialog", nullptr));
+        totEventLabel->setText(QCoreApplication::translate("MemberReport", "Total Events:", nullptr));
+        totHoursLabel->setText(QCoreApplication::translate("MemberReport", "Total Hours: ", nullptr));
+        eventYearLabel->setText(QCoreApplication::translate("MemberReport", "Events in year: ", nullptr));
+        eventYearHour->setText(QCoreApplication::translate("MemberReport", "Hour(s) in Year: ", nullptr));
+        themeCheck->setText(QCoreApplication::translate("MemberReport", "Dark Mode", nullptr));
     } // retranslateUi
 
 };

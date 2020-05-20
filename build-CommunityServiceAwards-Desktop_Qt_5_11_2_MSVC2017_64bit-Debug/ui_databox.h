@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'databox.ui'
 **
-** Created by: Qt User Interface Compiler version 5.11.2
+** Created by: Qt User Interface Compiler version 5.14.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -31,36 +31,36 @@ public:
     void setupUi(QDialog *DataBox)
     {
         if (DataBox->objectName().isEmpty())
-            DataBox->setObjectName(QStringLiteral("DataBox"));
+            DataBox->setObjectName(QString::fromUtf8("DataBox"));
         DataBox->resize(193, 142);
         widget = new QWidget(DataBox);
-        widget->setObjectName(QStringLiteral("widget"));
+        widget->setObjectName(QString::fromUtf8("widget"));
         widget->setGeometry(QRect(10, 10, 171, 121));
         verticalLayout = new QVBoxLayout(widget);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         nameLabel = new QLabel(widget);
-        nameLabel->setObjectName(QStringLiteral("nameLabel"));
+        nameLabel->setObjectName(QString::fromUtf8("nameLabel"));
         QFont font;
-        font.setFamily(QStringLiteral("Nirmala UI"));
+        font.setFamily(QString::fromUtf8("Nirmala UI"));
         nameLabel->setFont(font);
 
         verticalLayout->addWidget(nameLabel);
 
         dateLabel = new QLabel(widget);
-        dateLabel->setObjectName(QStringLiteral("dateLabel"));
+        dateLabel->setObjectName(QString::fromUtf8("dateLabel"));
         dateLabel->setFont(font);
 
         verticalLayout->addWidget(dateLabel);
 
         categoryLabel = new QLabel(widget);
-        categoryLabel->setObjectName(QStringLiteral("categoryLabel"));
+        categoryLabel->setObjectName(QString::fromUtf8("categoryLabel"));
         categoryLabel->setFont(font);
 
         verticalLayout->addWidget(categoryLabel);
 
         hourlabel = new QLabel(widget);
-        hourlabel->setObjectName(QStringLiteral("hourlabel"));
+        hourlabel->setObjectName(QString::fromUtf8("hourlabel"));
         hourlabel->setFont(font);
 
         verticalLayout->addWidget(hourlabel);
@@ -73,11 +73,11 @@ public:
 
     void retranslateUi(QDialog *DataBox)
     {
-        DataBox->setWindowTitle(QApplication::translate("DataBox", "Dialog", nullptr));
-        nameLabel->setText(QApplication::translate("DataBox", "Event Name:", nullptr));
-        dateLabel->setText(QApplication::translate("DataBox", "Event Date:", nullptr));
-        categoryLabel->setText(QApplication::translate("DataBox", "Event Category:", nullptr));
-        hourlabel->setText(QApplication::translate("DataBox", "Event Hour(s):", nullptr));
+        DataBox->setWindowTitle(QCoreApplication::translate("DataBox", "Dialog", nullptr));
+        nameLabel->setText(QCoreApplication::translate("DataBox", "Event Name:", nullptr));
+        dateLabel->setText(QCoreApplication::translate("DataBox", "Event Date:", nullptr));
+        categoryLabel->setText(QCoreApplication::translate("DataBox", "Event Category:", nullptr));
+        hourlabel->setText(QCoreApplication::translate("DataBox", "Event Hour(s):", nullptr));
     } // retranslateUi
 
 };

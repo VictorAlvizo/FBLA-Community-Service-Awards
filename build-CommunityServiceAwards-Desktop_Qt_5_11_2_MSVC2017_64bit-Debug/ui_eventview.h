@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'eventview.ui'
 **
-** Created by: Qt User Interface Compiler version 5.11.2
+** Created by: Qt User Interface Compiler version 5.14.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -23,7 +23,7 @@ class Ui_EventView
 public:
     QLabel *hourLabel;
     QLabel *hourInput;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QGridLayout *gridLayout;
     QLabel *nameLabel;
     QLabel *nameInput;
@@ -35,43 +35,43 @@ public:
     void setupUi(QDialog *EventView)
     {
         if (EventView->objectName().isEmpty())
-            EventView->setObjectName(QStringLiteral("EventView"));
+            EventView->setObjectName(QString::fromUtf8("EventView"));
         EventView->resize(300, 350);
         hourLabel = new QLabel(EventView);
-        hourLabel->setObjectName(QStringLiteral("hourLabel"));
-        hourLabel->setGeometry(QRect(100, 200, 101, 41));
+        hourLabel->setObjectName(QString::fromUtf8("hourLabel"));
+        hourLabel->setGeometry(QRect(100, 200, 111, 41));
         QFont font;
-        font.setFamily(QStringLiteral("Kenyan Coffee"));
+        font.setFamily(QString::fromUtf8("Kenyan Coffee"));
         font.setPointSize(30);
         hourLabel->setFont(font);
         hourInput = new QLabel(EventView);
-        hourInput->setObjectName(QStringLiteral("hourInput"));
+        hourInput->setObjectName(QString::fromUtf8("hourInput"));
         hourInput->setGeometry(QRect(130, 240, 71, 91));
         QFont font1;
-        font1.setFamily(QStringLiteral("Neou"));
+        font1.setFamily(QString::fromUtf8("Neou"));
         font1.setPointSize(25);
         font1.setBold(true);
         font1.setWeight(75);
         hourInput->setFont(font1);
-        widget = new QWidget(EventView);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(10, 20, 281, 151));
-        gridLayout = new QGridLayout(widget);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        layoutWidget = new QWidget(EventView);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 20, 281, 151));
+        gridLayout = new QGridLayout(layoutWidget);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        nameLabel = new QLabel(widget);
-        nameLabel->setObjectName(QStringLiteral("nameLabel"));
+        nameLabel = new QLabel(layoutWidget);
+        nameLabel->setObjectName(QString::fromUtf8("nameLabel"));
         QFont font2;
-        font2.setFamily(QStringLiteral("Kenyan Coffee"));
+        font2.setFamily(QString::fromUtf8("Kenyan Coffee"));
         font2.setPointSize(15);
         nameLabel->setFont(font2);
 
         gridLayout->addWidget(nameLabel, 0, 0, 1, 1);
 
-        nameInput = new QLabel(widget);
-        nameInput->setObjectName(QStringLiteral("nameInput"));
+        nameInput = new QLabel(layoutWidget);
+        nameInput->setObjectName(QString::fromUtf8("nameInput"));
         QFont font3;
-        font3.setFamily(QStringLiteral("Neou"));
+        font3.setFamily(QString::fromUtf8("Neou"));
         font3.setPointSize(15);
         font3.setBold(true);
         font3.setWeight(75);
@@ -79,26 +79,26 @@ public:
 
         gridLayout->addWidget(nameInput, 0, 1, 1, 1);
 
-        categoryLabel = new QLabel(widget);
-        categoryLabel->setObjectName(QStringLiteral("categoryLabel"));
+        categoryLabel = new QLabel(layoutWidget);
+        categoryLabel->setObjectName(QString::fromUtf8("categoryLabel"));
         categoryLabel->setFont(font2);
 
         gridLayout->addWidget(categoryLabel, 1, 0, 1, 1);
 
-        categoryInput = new QLabel(widget);
-        categoryInput->setObjectName(QStringLiteral("categoryInput"));
+        categoryInput = new QLabel(layoutWidget);
+        categoryInput->setObjectName(QString::fromUtf8("categoryInput"));
         categoryInput->setFont(font3);
 
         gridLayout->addWidget(categoryInput, 1, 1, 1, 1);
 
-        dateLabel = new QLabel(widget);
-        dateLabel->setObjectName(QStringLiteral("dateLabel"));
+        dateLabel = new QLabel(layoutWidget);
+        dateLabel->setObjectName(QString::fromUtf8("dateLabel"));
         dateLabel->setFont(font2);
 
         gridLayout->addWidget(dateLabel, 2, 0, 1, 1);
 
-        dateInput = new QLabel(widget);
-        dateInput->setObjectName(QStringLiteral("dateInput"));
+        dateInput = new QLabel(layoutWidget);
+        dateInput->setObjectName(QString::fromUtf8("dateInput"));
         dateInput->setFont(font3);
 
         gridLayout->addWidget(dateInput, 2, 1, 1, 1);
@@ -111,15 +111,15 @@ public:
 
     void retranslateUi(QDialog *EventView)
     {
-        EventView->setWindowTitle(QApplication::translate("EventView", "Dialog", nullptr));
-        hourLabel->setText(QApplication::translate("EventView", "Hours:", nullptr));
-        hourInput->setText(QApplication::translate("EventView", "0", nullptr));
-        nameLabel->setText(QApplication::translate("EventView", "Event Name: ", nullptr));
-        nameInput->setText(QApplication::translate("EventView", "Text: ", nullptr));
-        categoryLabel->setText(QApplication::translate("EventView", "Category: ", nullptr));
-        categoryInput->setText(QApplication::translate("EventView", "Text", nullptr));
-        dateLabel->setText(QApplication::translate("EventView", "Date: ", nullptr));
-        dateInput->setText(QApplication::translate("EventView", "Text", nullptr));
+        EventView->setWindowTitle(QCoreApplication::translate("EventView", "Dialog", nullptr));
+        hourLabel->setText(QCoreApplication::translate("EventView", "Hours:", nullptr));
+        hourInput->setText(QCoreApplication::translate("EventView", "0", nullptr));
+        nameLabel->setText(QCoreApplication::translate("EventView", "Event Name: ", nullptr));
+        nameInput->setText(QCoreApplication::translate("EventView", "Text: ", nullptr));
+        categoryLabel->setText(QCoreApplication::translate("EventView", "Category: ", nullptr));
+        categoryInput->setText(QCoreApplication::translate("EventView", "Text", nullptr));
+        dateLabel->setText(QCoreApplication::translate("EventView", "Date: ", nullptr));
+        dateInput->setText(QCoreApplication::translate("EventView", "Text", nullptr));
     } // retranslateUi
 
 };

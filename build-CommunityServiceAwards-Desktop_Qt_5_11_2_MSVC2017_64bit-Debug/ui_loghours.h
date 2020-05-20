@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'loghours.ui'
 **
-** Created by: Qt User Interface Compiler version 5.11.2
+** Created by: Qt User Interface Compiler version 5.14.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -39,63 +39,63 @@ public:
     void setupUi(QDialog *LogHours)
     {
         if (LogHours->objectName().isEmpty())
-            LogHours->setObjectName(QStringLiteral("LogHours"));
+            LogHours->setObjectName(QString::fromUtf8("LogHours"));
         LogHours->resize(230, 405);
         layoutWidget = new QWidget(LogHours);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(21, 11, 191, 391));
         verticalLayout = new QVBoxLayout(layoutWidget);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         nameLabel = new QLabel(layoutWidget);
-        nameLabel->setObjectName(QStringLiteral("nameLabel"));
+        nameLabel->setObjectName(QString::fromUtf8("nameLabel"));
         QFont font;
-        font.setFamily(QStringLiteral("Kenyan Coffee"));
+        font.setFamily(QString::fromUtf8("Kenyan Coffee"));
         font.setPointSize(15);
         nameLabel->setFont(font);
 
         verticalLayout->addWidget(nameLabel);
 
         nameOutput = new QLineEdit(layoutWidget);
-        nameOutput->setObjectName(QStringLiteral("nameOutput"));
+        nameOutput->setObjectName(QString::fromUtf8("nameOutput"));
 
         verticalLayout->addWidget(nameOutput);
 
         categoryLabel = new QLabel(layoutWidget);
-        categoryLabel->setObjectName(QStringLiteral("categoryLabel"));
+        categoryLabel->setObjectName(QString::fromUtf8("categoryLabel"));
         categoryLabel->setFont(font);
 
         verticalLayout->addWidget(categoryLabel);
 
         otherInput = new QLineEdit(layoutWidget);
-        otherInput->setObjectName(QStringLiteral("otherInput"));
+        otherInput->setObjectName(QString::fromUtf8("otherInput"));
 
         verticalLayout->addWidget(otherInput);
 
         hourLabel = new QLabel(layoutWidget);
-        hourLabel->setObjectName(QStringLiteral("hourLabel"));
+        hourLabel->setObjectName(QString::fromUtf8("hourLabel"));
         hourLabel->setFont(font);
 
         verticalLayout->addWidget(hourLabel);
 
         hourBox = new QSpinBox(layoutWidget);
-        hourBox->setObjectName(QStringLiteral("hourBox"));
+        hourBox->setObjectName(QString::fromUtf8("hourBox"));
 
         verticalLayout->addWidget(hourBox);
 
         dateLabel = new QLabel(layoutWidget);
-        dateLabel->setObjectName(QStringLiteral("dateLabel"));
+        dateLabel->setObjectName(QString::fromUtf8("dateLabel"));
         dateLabel->setFont(font);
 
         verticalLayout->addWidget(dateLabel);
 
         dateButton = new QPushButton(layoutWidget);
-        dateButton->setObjectName(QStringLiteral("dateButton"));
+        dateButton->setObjectName(QString::fromUtf8("dateButton"));
 
         verticalLayout->addWidget(dateButton);
 
         submitButton = new QPushButton(layoutWidget);
-        submitButton->setObjectName(QStringLiteral("submitButton"));
+        submitButton->setObjectName(QString::fromUtf8("submitButton"));
 
         verticalLayout->addWidget(submitButton);
 
@@ -107,14 +107,14 @@ public:
 
     void retranslateUi(QDialog *LogHours)
     {
-        LogHours->setWindowTitle(QApplication::translate("LogHours", "Dialog", nullptr));
-        nameLabel->setText(QApplication::translate("LogHours", "Event Name ", nullptr));
-        categoryLabel->setText(QApplication::translate("LogHours", "Event Category", nullptr));
+        LogHours->setWindowTitle(QCoreApplication::translate("LogHours", "Dialog", nullptr));
+        nameLabel->setText(QCoreApplication::translate("LogHours", "Event Name ", nullptr));
+        categoryLabel->setText(QCoreApplication::translate("LogHours", "Event Category", nullptr));
         otherInput->setText(QString());
-        hourLabel->setText(QApplication::translate("LogHours", "Hours", nullptr));
-        dateLabel->setText(QApplication::translate("LogHours", "Date: ", nullptr));
-        dateButton->setText(QApplication::translate("LogHours", "Select Date", nullptr));
-        submitButton->setText(QApplication::translate("LogHours", "Log", nullptr));
+        hourLabel->setText(QCoreApplication::translate("LogHours", "Hours", nullptr));
+        dateLabel->setText(QCoreApplication::translate("LogHours", "Date: ", nullptr));
+        dateButton->setText(QCoreApplication::translate("LogHours", "Select Date", nullptr));
+        submitButton->setText(QCoreApplication::translate("LogHours", "Log", nullptr));
     } // retranslateUi
 
 };

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'calendarwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.11.2
+** Created by: Qt User Interface Compiler version 5.14.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -26,13 +26,13 @@ public:
     void setupUi(QDialog *CalendarWindow)
     {
         if (CalendarWindow->objectName().isEmpty())
-            CalendarWindow->setObjectName(QStringLiteral("CalendarWindow"));
+            CalendarWindow->setObjectName(QString::fromUtf8("CalendarWindow"));
         CalendarWindow->resize(341, 360);
         calendar = new QCalendarWidget(CalendarWindow);
-        calendar->setObjectName(QStringLiteral("calendar"));
+        calendar->setObjectName(QString::fromUtf8("calendar"));
         calendar->setGeometry(QRect(11, 21, 311, 251));
         submitButton = new QPushButton(CalendarWindow);
-        submitButton->setObjectName(QStringLiteral("submitButton"));
+        submitButton->setObjectName(QString::fromUtf8("submitButton"));
         submitButton->setGeometry(QRect(10, 300, 309, 41));
 
         retranslateUi(CalendarWindow);
@@ -42,8 +42,8 @@ public:
 
     void retranslateUi(QDialog *CalendarWindow)
     {
-        CalendarWindow->setWindowTitle(QApplication::translate("CalendarWindow", "Dialog", nullptr));
-        submitButton->setText(QApplication::translate("CalendarWindow", "Submit Date", nullptr));
+        CalendarWindow->setWindowTitle(QCoreApplication::translate("CalendarWindow", "Dialog", nullptr));
+        submitButton->setText(QCoreApplication::translate("CalendarWindow", "Submit Date", nullptr));
     } // retranslateUi
 
 };
